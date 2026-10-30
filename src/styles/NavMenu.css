@@ -1,0 +1,29 @@
+.nav-menu {
+    background: #78b43d;
+    color: #fff;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 0 10px;
+    .cover-menu {
+        display: flex;
+        align-items: center;
+
+        .item-menu {
+            list-style: none;
+            padding: 10px;
+            margin: 0;
+            &:hover {
+                cursor: pointer;
+                background: #547e2b;
+            }
+        }
+        i {
+            font-size: 23px;
+        }
+        .line{
+            border: 1px solid #fff;
+            height: 20px;
+        }
+    }
+
+}

@@ -1,5 +1,5 @@
 import '../styles/Header.css';
-import {SearchComponent} from "./index.ts";
+import {SearchComponent,NavMenuComponent} from "./index.ts";
 const HeaderComponent = () => {
     return (
         <>
@@ -31,6 +31,7 @@ const HeaderComponent = () => {
                     </div>
                 </div>
             </div>
+            <NavMenuComponent/>
         </>
     );
 }
