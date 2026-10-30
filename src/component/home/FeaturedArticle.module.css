@@ -1,0 +1,26 @@
+.featuredArticle {
+    width: 100%;
+}
+
+.featuredArticle img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.featuredArticle h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 12px 0 8px;
+}
+
+.featuredArticle p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #777;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}

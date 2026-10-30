@@ -1,5 +1,5 @@
 import './App.css'
-import ArticleCard from "./component/home/ArticleCard";
+import FeaturedArticle from "./component/home/FeaturedArticle";
 import {HeaderComponent} from "./component";
 import DailyNews from "./component/DailyNews";
 
@@ -21,7 +21,7 @@ function App() {
                 <section className="main-content">
                 </section>
                 <section className="main-content">
-                    <ArticleCard article={testArticle}/>
+                    <FeaturedArticle article={testArticle}/>
                 </section>
                 <aside className="right-sidebar">
                     <DailyNews/>
