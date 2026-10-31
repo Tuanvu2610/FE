@@ -4,21 +4,71 @@
     font-size: 12px;
     font-weight: bold;
     padding: 0 10px;
+    display: flex;
+    justify-content: center;
     .cover-menu {
         display: flex;
         align-items: center;
-
+        gap: 10px;
         .item-menu {
             list-style: none;
             padding: 10px;
             margin: 0;
+            position: relative;
+            .sub-menu {
+                display: none;
+                .cover-sub-menu {
+                    position: absolute;
+                    top: 100%;
+                    left: 0;
+                    background: #fff;
+                    color: #333;
+                    margin: 0;
+                    list-style: none;
+                    z-index: 100;
+                    border: 1px solid #ccc;
+                    min-width: 150px;
+                    padding: 0 15px;
+                    border-radius: 0 0 4px 4px;
+                    display: grid;
+                    grid-auto-flow: column;
+                    grid-template-rows: repeat(8, auto);
+                    grid-auto-columns: 150px;
+                    width: fit-content;
+                    li {
+                        border-bottom: 1px solid #ccc;
+                        text-align: left;
+                        margin: 0;
+                        padding: 10px;
+                        box-sizing: border-box;
+                        width: auto;
+                        font-size: 10px;
+                        &:hover {
+                            color: #fff;
+                            background: #78b43d;
+                        }
+                    }
+                }
+            }
+            &:hover {
+                cursor: pointer;
+                background: #547e2b;
+                >.sub-menu {
+                    display: block;
+                }
+            }
+            &:nth-last-child(-n + 4) .sub-menu .cover-sub-menu {
+                left: auto;
+                right: 0;
+            }
+        }
+        i {
+            font-size: 15px;
+            padding: 15px;
             &:hover {
                 cursor: pointer;
                 background: #547e2b;
             }
-        }
-        i {
-            font-size: 23px;
         }
         .line{
             border: 1px solid #fff;
