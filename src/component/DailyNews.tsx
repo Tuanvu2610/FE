@@ -1,4 +1,4 @@
-import styles from "../styles/DailyNews.css";
+import "../styles/DailyNews.css";
 
 interface NewsItem {
     id: number;
