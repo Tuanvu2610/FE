@@ -1,4 +1,4 @@
-import styles from "../styles/DailyNews.module.css";
+import styles from "../styles/DailyNews.css";
 
 interface NewsItem {
     id: number;
@@ -48,24 +48,24 @@ const newsItems: NewsItem[] = [
 
 function DailyNews() {
     return (
-        <section className={styles.dailyNews}>
-            <h2 className={styles.heading}>TIN TỨC TRONG NGÀY</h2>
+        <section className="dailyNews">
+            <h2 className="heading">TIN TỨC TRONG NGÀY</h2>
 
-            <div className={styles.newsList}>
+            <div className="newsList">
                 {newsItems.map((item) => (
-                    <article className={styles.newsItem} key={item.id}>
-            <span className={styles.category}>
+                    <article className="newsItem" key={item.id}>
+            <span className="category">
               {item.category}
             </span>
 
-                        <div className={styles.titleWrapper}>
-                            <h3 className={styles.title}>
+                        <div className="titleWrapper">
+                            <h3 className="title">
                                 {item.title}
                             </h3>
 
                             {item.hasVideo && (
                                 <svg
-                                    className={styles.videoIcon}
+                                    className="videoIcon"
                                     viewBox="0 0 24 24"
                                     fill="none"
                                     xmlns="http://www.w3.org/2000/svg"
