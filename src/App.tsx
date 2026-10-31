@@ -1,3 +1,4 @@
+
 import './App.css'
 import FeaturedArticle from "./component/home/FeaturedArticle";
 import {HeaderComponent} from "./component";
@@ -6,7 +7,6 @@ import AdBanner from "./component/AdBanner";
 import BackToTop from "./component/BackToTop";
 
 function App() {
-    //test
     const testArticle = {
         id: 1,
         title: "Tin tức nổi bật trong ngày hôm nay",
@@ -15,27 +15,23 @@ function App() {
         category: "Tin tức",
         hasVideo: true
     };
+
     return (
         <>
             <HeaderComponent/>
 
             <main className="home-layout">
-                <section className="main-content"></section>
-
-                <aside className="right-sidebar">
-                    <DailyNews />
-                    <AdBanner />
-                <section className="main-content">
-                </section>
                 <section className="main-content">
                     <FeaturedArticle article={testArticle}/>
                 </section>
+
                 <aside className="right-sidebar">
                     <DailyNews/>
+                    <AdBanner/>
                 </aside>
             </main>
 
-            <BackToTop />
+            <BackToTop/>
         </>
     );
 }

@@ -1,4 +1,4 @@
-import styles from "../styles/AdBanner.css";
+import "../styles/AdBanner.css";
 
 function AdBanner() {
     return (
