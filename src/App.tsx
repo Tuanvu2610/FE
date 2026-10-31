@@ -5,8 +5,35 @@ import {HeaderComponent} from "./component";
 import DailyNews from "./component/DailyNews";
 import AdBanner from "./component/AdBanner";
 import BackToTop from "./component/BackToTop";
+import SmallArticleRow from "./component/home/SmallArticleRow";
 
 function App() {
+    const smallArticles = [
+        {
+            id: 2,
+            title: "Video bóng đá Hà Nội - Ninh Bình: Những pha bóng đáng chú ý",
+            summary: "",
+            thumbnail: "https://picsum.photos/seed/news1/400/250",
+            category: "Bóng đá",
+            hasVideo: true
+        },
+        {
+            id: 3,
+            title: "Video bóng đá Thanh Hóa - Hà Tĩnh: Trận đấu hấp dẫn",
+            summary: "",
+            thumbnail: "https://picsum.photos/seed/news2/400/250",
+            category: "Bóng đá",
+            hasVideo: true
+        },
+        {
+            id: 4,
+            title: "Giới chủ MU nói chuyện về kế hoạch phát triển đội bóng",
+            summary: "",
+            thumbnail: "https://picsum.photos/seed/news3/400/250",
+            category: "Thể thao",
+            hasVideo: false
+        }
+    ];
     const testArticle = {
         id: 1,
         title: "Tin tức nổi bật trong ngày hôm nay",
@@ -36,7 +63,10 @@ function App() {
                 <section className="main-content">
                     <FeaturedArticle article={testArticle}/>
                 </section>
-
+                <section className="main-content">
+                    <FeaturedArticle article={testArticle}/>
+                    <SmallArticleRow articles={smallArticles}/>
+                </section>
                 <aside className="right-sidebar">
                     <DailyNews/>
                     <AdBanner/>

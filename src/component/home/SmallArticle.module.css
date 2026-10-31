@@ -1,0 +1,21 @@
+.smallArticle {
+    width: 100%;
+    min-width: 0;
+}
+
+.smallArticle img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    object-fit: cover;
+}
+
+.smallArticle h3 {
+    font-size: 15px;
+    line-height: 1.4;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+.smallArticle p {
+    display: none;
+}
