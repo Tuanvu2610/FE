@@ -6,6 +6,7 @@ import DailyNews from "./component/DailyNews";
 import AdBanner from "./component/AdBanner";
 import BackToTop from "./component/BackToTop";
 import SmallArticleRow from "./component/home/SmallArticleRow";
+import FooterComponet from "./component/FooterComponet.tsx";
 
 function App() {
     const smallArticles = [
@@ -76,6 +77,9 @@ function App() {
             <ArticleDetail article={testArticleDetail}/>
 
             <BackToTop/>
+
+            <FooterComponet/>
+
         </>
     );
 }
