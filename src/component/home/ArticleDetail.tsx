@@ -1,5 +1,5 @@
 
-import "./ArticleDetail.css";
+import "../../styles/ArticleDetail.css";
 
 interface ArticleDetailProps {
     title: string;

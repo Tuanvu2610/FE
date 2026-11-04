@@ -1,5 +1,5 @@
 import ArticleCard, {type Article} from "./ArticleCard";
-import styles from "./FeaturedArticle.module.css";
+import styles from "../../styles/FeaturedArticle.css";
 
 interface FeaturedArticleProps {
     article: Article;

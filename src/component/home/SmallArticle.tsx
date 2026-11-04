@@ -1,5 +1,5 @@
 import ArticleCard, {type Article} from "./ArticleCard";
-import styles from "./SmallArticle.module.css";
+import styles from "../../styles/SmallArticle.css";
 
 interface SmallArticleProps {
     article: Article;
