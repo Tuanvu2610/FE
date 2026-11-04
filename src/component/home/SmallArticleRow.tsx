@@ -1,6 +1,6 @@
 import SmallArticle from "./SmallArticle";
 import type {Article} from "./ArticleCard";
-import styles from "./SmallArticleRow.module.css";
+import styles from "../../styles/SmallArticleRow.css";
 
 interface SmallArticleRowProps {
     articles: Article[];

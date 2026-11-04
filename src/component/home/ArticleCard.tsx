@@ -1,5 +1,5 @@
 import VideoIcon from "./VideoIcon";
-import styles from "./ArticleCard.module.css";
+import styles from "../../styles/ArticleCard.css";
 
 export interface Article {
     id: number;
