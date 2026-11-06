@@ -1,5 +1,5 @@
 import ArticleCard, {type Article} from "./ArticleCard";
-import styles from "../../styles/SmallArticle.css";
+import  "../../styles/SmallArticle.css";
 
 interface SmallArticleProps {
     article: Article;
@@ -7,7 +7,7 @@ interface SmallArticleProps {
 
 function SmallArticle({article}: SmallArticleProps) {
     return (
-        <div className={styles.smallArticle}>
+        <div className="smallArticle">
             <ArticleCard article={article}/>
         </div>
     );

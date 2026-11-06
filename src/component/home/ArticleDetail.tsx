@@ -1,4 +1,3 @@
-
 import "../../styles/ArticleDetail.css";
 
 interface ArticleDetailProps {

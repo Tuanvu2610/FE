@@ -1,5 +1,5 @@
 import VideoIcon from "./VideoIcon";
-import styles from "../../styles/ArticleCard.css";
+import "../../styles/ArticleCard.css";
 
 export interface Article {
     id: number;
@@ -16,29 +16,30 @@ interface ArticleCardProps {
 
 function ArticleCard({article}: ArticleCardProps) {
     return (
-        <article className={styles.card}>
-            <div className={styles.imageBox}>
+        <article className="card">
+            <div className="imageBox">
                 <img
                     src={article.thumbnail}
                     alt={article.title}
-                    className={styles.image}
+                    className="image"
                 />
 
                 {article.hasVideo && (
-                    <div className={styles.videoIcon}>
+                    <div className="videoIcon">
                         <VideoIcon/>
                     </div>
                 )}
             </div>
 
-            <h3 className={styles.title}>
+            <h3 className="title">
                 {article.title}
             </h3>
 
-            <p className={styles.summary}>
+            <p className="summary">
                 {article.summary}
             </p>
         </article>
     );
 }
+
 export default ArticleCard;

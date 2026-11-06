@@ -7,8 +7,12 @@ import AdBanner from "./component/AdBanner";
 import BackToTop from "./component/BackToTop";
 import SmallArticleRow from "./component/home/SmallArticleRow";
 import FooterComponet from "./component/FooterComponet.tsx";
+import {Routes, Route} from "react-router-dom";
+import AsianCupPage from "./pages/AsianCupPage";
+import CrimePage from "./pages/CrimePage";
+import FashionPage from "./pages/FashionPage";
 
-function App() {
+function HomePage() {
     const smallArticles = [
         {
             id: 2,
@@ -58,8 +62,6 @@ function App() {
 
     return (
         <>
-            <HeaderComponent/>
-
             <main className="home-layout">
                 <section className="main-content">
                     <FeaturedArticle article={testArticle}/>
@@ -75,11 +77,23 @@ function App() {
             </main>
 
             <ArticleDetail article={testArticleDetail}/>
+        </>
+    );
+}
+
+function App() {
+    return (
+        <>
+            <HeaderComponent/>
+            <Routes>
+                <Route path="/" element={<HomePage/>}/>
+                <Route path="/asian-cup" element={<AsianCupPage/>}/>
+                <Route path="/an-ninh-hinh-su" element={<CrimePage/>}/>
+                <Route path="/thoi-trang" element={<FashionPage/>}/>
+            </Routes>
 
             <BackToTop/>
-
             <FooterComponet/>
-
         </>
     );
 }
