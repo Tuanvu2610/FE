@@ -1,0 +1,274 @@
+.fashion-container {
+    max-width: 1200px;
+    margin: 20px auto 40px;
+    padding: 0 15px;
+    color: #222;
+    box-sizing: border-box;
+}
+
+.fashion-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #888;
+}
+
+.fashion-breadcrumb a {
+    color: #555;
+    text-decoration: none;
+}
+
+.fashion-breadcrumb strong {
+    color: #222;
+}
+
+.fashion-heading {
+    border-bottom: 2px solid #e5e5e5;
+    margin-bottom: 20px;
+}
+
+.fashion-heading h1 {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+    padding: 0 0 10px;
+    border-bottom: 3px solid #ed1c24;
+    letter-spacing: 0;
+}
+
+.fashion-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 820px) minmax(250px, 1fr);
+    gap: 25px;
+    align-items: start;
+}
+
+.fashion-main {
+    min-width: 0;
+}
+
+.fashion-featured {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.fashion-main-article img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.fashion-main-article a,
+.fashion-side-articles a,
+.fashion-news-info a {
+    color: #222;
+    text-decoration: none;
+}
+
+.fashion-main-article h2 {
+    font-size: 23px;
+    font-weight: 700;
+    line-height: 1.4;
+    margin: 12px 0 8px;
+}
+
+.fashion-main-article p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.fashion-main-article span,
+.fashion-side-articles span,
+.fashion-news-info span {
+    font-size: 12px;
+    color: #999;
+}
+
+.fashion-side-articles {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.fashion-side-articles article {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.fashion-side-articles img {
+    width: 110px;
+    height: 75px;
+    object-fit: cover;
+    float: left;
+    margin-right: 10px;
+}
+
+.fashion-side-articles h3 {
+    font-size: 15px;
+    line-height: 1.4;
+    margin: 0 0 8px;
+}
+
+.fashion-section-title {
+    border-bottom: 2px solid #e5e5e5;
+    margin: 20px 0 15px;
+}
+
+.fashion-section-title h2 {
+    display: inline-block;
+    font-size: 19px;
+    font-weight: 700;
+    margin: 0;
+    padding-bottom: 8px;
+    border-bottom: 3px solid #ed1c24;
+}
+
+.fashion-news-item {
+    display: flex;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.fashion-news-item img {
+    width: 190px;
+    height: 125px;
+    object-fit: cover;
+    display: block;
+}
+
+.fashion-news-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.fashion-news-info h3 {
+    font-size: 18px;
+    line-height: 1.4;
+    margin: 0 0 8px;
+}
+
+.fashion-news-info p {
+    font-size: 14px;
+    line-height: 1.5;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.fashion-sidebar {
+    border-left: 1px solid #e5e5e5;
+    padding-left: 18px;
+}
+
+.fashion-popular {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.fashion-popular > span {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ed1c24;
+    min-width: 22px;
+}
+
+.fashion-popular a {
+    color: #333;
+    text-decoration: none;
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 600;
+}
+
+.fashion-main-article a:hover h2,
+.fashion-side-articles a:hover h3,
+.fashion-news-info a:hover h3,
+.fashion-popular a:hover {
+    color: #ed1c24;
+}
+
+.fashion-ad {
+    margin-top: 25px;
+    min-height: 200px;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #aaa;
+    font-size: 12px;
+}
+
+.fashion-message,
+.fashion-error {
+    text-align: center;
+    padding: 40px 10px;
+    font-size: 16px;
+}
+
+.fashion-error {
+    color: #d71920;
+}
+
+@media (max-width: 768px) {
+    .fashion-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .fashion-featured {
+        grid-template-columns: 1fr;
+    }
+
+    .fashion-side-articles {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .fashion-sidebar {
+        border-left: none;
+        padding-left: 0;
+    }
+
+    .fashion-news-item img {
+        width: 130px;
+        height: 95px;
+    }
+
+    .fashion-news-info h3 {
+        font-size: 15px;
+    }
+
+    .fashion-news-info p {
+        font-size: 13px;
+    }
+
+    .fashion-main-article h2 {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .fashion-side-articles {
+        grid-template-columns: 1fr;
+    }
+
+    .fashion-news-item img {
+        width: 110px;
+        height: 85px;
+    }
+
+    .fashion-heading h1 {
+        font-size: 21px;
+    }
+}

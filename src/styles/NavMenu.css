@@ -25,5 +25,12 @@
             height: 20px;
         }
     }
-
+}
+.sub-menu a{
+    color:inherit;
+    text-decoration:none;
+    display:block
+}
+.sub-menu a:hover{
+    color:#e51b23
 }

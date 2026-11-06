@@ -1,12 +1,17 @@
 import './App.css'
 import FeaturedArticle from "./component/home/FeaturedArticle";
 import ArticleDetail from "./component/home/ArticleDetail";
-import {HeaderComponent} from "./component";
 import DailyNews from "./component/DailyNews";
 import AdBanner from "./component/AdBanner";
 import BackToTop from "./component/BackToTop";
+import { HeaderComponent } from "./component";
+import { Routes, Route } from "react-router-dom";
+import AsianCupPage from "./pages/AsianCupPage";
+import CrimePage from "./pages/CrimePage";
+import FashionPage from "./pages/FashionPage";
+import HiTechPage from "./pages/HiTechPage";
 
-function App() {
+function HomePage() {
     const testArticle = {
         id: 1,
         title: "Tin tức nổi bật trong ngày hôm nay",
@@ -15,6 +20,7 @@ function App() {
         category: "Tin tức",
         hasVideo: true
     };
+
     const testArticleDetail = {
         title: "Công nghệ trí tuệ nhân tạo đang thay đổi cuộc sống như thế nào?",
         author: "Nguyễn Văn A",
@@ -30,8 +36,6 @@ function App() {
 
     return (
         <>
-            <HeaderComponent/>
-
             <main className="home-layout">
                 <section className="main-content">
                     <FeaturedArticle article={testArticle}/>
@@ -44,6 +48,22 @@ function App() {
             </main>
 
             <ArticleDetail article={testArticleDetail}/>
+        </>
+    );
+}
+
+function App() {
+    return (
+        <>
+            <HeaderComponent/>
+
+            <Routes>
+                <Route path="/" element={<HomePage/>}/>
+                <Route path="/asian-cup" element={<AsianCupPage/>}/>
+                <Route path="/an-ninh-hinh-su" element={<CrimePage/>}/>
+                <Route path="/thoi-trang" element={<FashionPage/>}/>
+                <Route path="/thoi-trang-hi-tech" element={<HiTechPage/>}/>
+            </Routes>
 
             <BackToTop/>
         </>
