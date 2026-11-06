@@ -8,7 +8,7 @@ interface SmallArticleRowProps {
 
 function SmallArticleRow({articles}: SmallArticleRowProps) {
     return (
-        <div className={styles.articleRow}>
+        <div className="articleRow">
             {articles.slice(0, 4).map((article) => (
                 <SmallArticle
                     key={article.id}

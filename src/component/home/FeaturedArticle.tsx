@@ -1,5 +1,5 @@
 import ArticleCard, {type Article} from "./ArticleCard";
-import styles from "../../styles/FeaturedArticle.css";
+import "../../styles/FeaturedArticle.css";
 
 interface FeaturedArticleProps {
     article: Article;
@@ -7,7 +7,7 @@ interface FeaturedArticleProps {
 
 function FeaturedArticle({article}: FeaturedArticleProps) {
     return (
-        <div className={styles.featuredArticle}>
+        <div className="featured-article">
             <ArticleCard article={article}/>
         </div>
     );
