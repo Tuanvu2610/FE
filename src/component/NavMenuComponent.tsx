@@ -1,8 +1,9 @@
 import { useEffect } from "react";
-import type {RootState} from "../store/store.ts";
-import {useDispatch, useSelector} from "react-redux";
-import {load} from "../store/slice/MenuItems.ts";
-import "../styles/NavMenu.css"
+import type { RootState } from "../store/store.ts";
+import { useDispatch, useSelector } from "react-redux";
+import { load } from "../store/slice/MenuItems.ts";
+import "../styles/NavMenu.css";
+
 export interface MenuItem {
     id: number;
     name: string;
@@ -201,6 +202,7 @@ const listMenuItem = [
 const NavMenuComponent = () => {
     const listMenu = useSelector((state: RootState) => state.menuItems);
     const dispatch = useDispatch();
+
     useEffect(() => {
         dispatch(load(listMenuItem))
     }, [dispatch])
@@ -221,7 +223,15 @@ const NavMenuComponent = () => {
                                         <ul className="cover-sub-menu">
                                             {
                                                 listMenu.filter((item) => item.idParent === menuItem.id).map((item: MenuItem) => (
-                                                <li>{item.name}</li>
+                                                <li>
+                                                    {item.name === "Thời trang Hi-tech" ? (
+                                                        <Link to="/thoi-trang-hi-tech">
+                                                            {item.name}
+                                                        </Link>
+                                                    ) : (
+                                                        item.name
+                                                    )}
+                                                </li>
                                                 ))
                                             }
                                         </ul>
@@ -232,7 +242,8 @@ const NavMenuComponent = () => {
                     }
                </div>
             </div>
-        </>
-    )
-}
+        </div>
+    );
+};
+
 export default NavMenuComponent;

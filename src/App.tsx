@@ -1,44 +1,17 @@
 import './App.css'
 import FeaturedArticle from "./component/home/FeaturedArticle";
 import ArticleDetail from "./component/home/ArticleDetail";
-import {HeaderComponent} from "./component";
 import DailyNews from "./component/DailyNews";
 import AdBanner from "./component/AdBanner";
 import BackToTop from "./component/BackToTop";
-import SmallArticleRow from "./component/home/SmallArticleRow";
-import FooterComponet from "./component/FooterComponet.tsx";
-import {Routes, Route} from "react-router-dom";
+import { HeaderComponent } from "./component";
+import { Routes, Route } from "react-router-dom";
 import AsianCupPage from "./pages/AsianCupPage";
 import CrimePage from "./pages/CrimePage";
 import FashionPage from "./pages/FashionPage";
+import HiTechPage from "./pages/HiTechPage";
 
 function HomePage() {
-    const smallArticles = [
-        {
-            id: 2,
-            title: "Video bóng đá Hà Nội - Ninh Bình: Những pha bóng đáng chú ý",
-            summary: "",
-            thumbnail: "https://picsum.photos/seed/news1/400/250",
-            category: "Bóng đá",
-            hasVideo: true
-        },
-        {
-            id: 3,
-            title: "Video bóng đá Thanh Hóa - Hà Tĩnh: Trận đấu hấp dẫn",
-            summary: "",
-            thumbnail: "https://picsum.photos/seed/news2/400/250",
-            category: "Bóng đá",
-            hasVideo: true
-        },
-        {
-            id: 4,
-            title: "Giới chủ MU nói chuyện về kế hoạch phát triển đội bóng",
-            summary: "",
-            thumbnail: "https://picsum.photos/seed/news3/400/250",
-            category: "Thể thao",
-            hasVideo: false
-        }
-    ];
     const testArticle = {
         id: 1,
         title: "Tin tức nổi bật trong ngày hôm nay",
@@ -47,6 +20,7 @@ function HomePage() {
         category: "Tin tức",
         hasVideo: true
     };
+
     const testArticleDetail = {
         title: "Công nghệ trí tuệ nhân tạo đang thay đổi cuộc sống như thế nào?",
         author: "Nguyễn Văn A",
@@ -66,10 +40,7 @@ function HomePage() {
                 <section className="main-content">
                     <FeaturedArticle article={testArticle}/>
                 </section>
-                <section className="main-content">
-                    <FeaturedArticle article={testArticle}/>
-                    <SmallArticleRow articles={smallArticles}/>
-                </section>
+
                 <aside className="right-sidebar">
                     <DailyNews/>
                     <AdBanner/>
@@ -85,15 +56,16 @@ function App() {
     return (
         <>
             <HeaderComponent/>
+
             <Routes>
                 <Route path="/" element={<HomePage/>}/>
                 <Route path="/asian-cup" element={<AsianCupPage/>}/>
                 <Route path="/an-ninh-hinh-su" element={<CrimePage/>}/>
                 <Route path="/thoi-trang" element={<FashionPage/>}/>
+                <Route path="/thoi-trang-hi-tech" element={<HiTechPage/>}/>
             </Routes>
 
             <BackToTop/>
-            <FooterComponet/>
         </>
     );
 }
