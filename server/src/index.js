@@ -4,7 +4,6 @@ import dotenv from "dotenv";
 import { getNews } from "../services/rssService.js";
 
 dotenv.config();
-
 const app = express();
 const PORT = process.env.PORT || 4000;
 
@@ -39,7 +38,6 @@ app.get("/api/:category", async (req, res) => {
 
     } catch (error) {
         console.error("RSS ERROR:", error);
-
         res.status(500).json({
             success: false,
             message: error.message
