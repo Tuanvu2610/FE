@@ -4,13 +4,14 @@ import ArticleDetail from "./component/home/ArticleDetail";
 import DailyNews from "./component/DailyNews";
 import AdBanner from "./component/AdBanner";
 import BackToTop from "./component/BackToTop";
-import { HeaderComponent } from "./component";
+import {FooterComponet, HeaderComponent} from "./component";
 import { Routes, Route } from "react-router-dom";
 import AsianCupPage from "./pages/AsianCupPage";
 import CrimePage from "./pages/CrimePage";
 import FashionPage from "./pages/FashionPage";
 import HiTechPage from "./pages/HiTechPage";
 import FinancePage from "./pages/FinancePage";
+import TodayPage from "./pages/TodayPage.tsx";
 
 function HomePage() {
     const testArticle = {
@@ -65,9 +66,11 @@ function App() {
                 <Route path="/thoi-trang" element={<FashionPage/>}/>
                 <Route path="/thoi-trang-hi-tech" element={<HiTechPage/>}/>
                 <Route path="/tai-chinh-bat-dong-san" element={<FinancePage/>}/>
+                <Route path="/trong-ngay" element={<TodayPage/>}/>
             </Routes>
 
             <BackToTop/>
+            <FooterComponet/>
         </>
     );
 }
