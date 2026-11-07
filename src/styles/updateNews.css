@@ -1,0 +1,55 @@
+.card-update {
+    display: grid;
+    grid-template-columns: 25% 1fr;
+    column-gap: 12px;
+    align-items: start;
+    width: 100%;
+    margin-bottom: 16px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+}
+
+.imageBox-update {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    border-radius: 6px;
+    max-width: 200px;
+}
+
+.image-update {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.videoIcon-update {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.65);
+    padding: 6px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.title-update {
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.4;
+    color: #222;
+    margin: 0;
+    text-align: left;
+}
+.description-update {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+    font-size: 14px;
+}

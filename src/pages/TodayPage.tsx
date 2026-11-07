@@ -3,6 +3,8 @@ import SmallArticle from "../component/home/SmallArticle.tsx";
 import "../styles/TodayPage.css"
 import FeaturedArticle from "../component/home/FeaturedArticle.tsx";
 import SmallArticleRow from "../component/home/SmallArticleRow.tsx";
+import MarketNews from "../component/home/MarketNews.tsx";
+import NewsUpdate from "../component/home/NewsUpdate.tsx";
 interface Article {
     title: string;
     link: string;
@@ -15,6 +17,8 @@ const TodayPage = () => {
     const [articles, setArticles] = useState<Article[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
+    // const [startNews, setStartNews] = useState(0);
+    // const [endNews, setEndNews] = useState(24);
     useEffect(() => {
         fetch("api/trongngay")
             .then((response) => {
@@ -105,13 +109,22 @@ const TodayPage = () => {
                   <div>
                       <SmallArticleRow articles={articles}/>
                   </div>
+                  <div>
+                      <h3>TIN TỨC MỚI CẬP NHẬT</h3>
+                      {articles.slice(13, 18).map((article, index) => (
+                          <NewsUpdate
+                              key={index}
+                              article={article}
+                          />
+                      ))}
+                  </div>
               </div>
               <div className="cover-news-right">
                   <button className="style-btn"><i className="fa-solid fa-paper-plane"></i> Gửi góp ý</button>
-                  <h3>TIN TỨC THỊ TRƯỜNG</h3>
+                  <h3 style={{ color: "#518f02"}}>TIN TỨC THỊ TRƯỜNG</h3>
                   <div>
                       {articles.slice(7, 12).map((article, index) => (
-                          <SmallArticle
+                          <MarketNews
                               key={index}
                               article={article}
                           />
