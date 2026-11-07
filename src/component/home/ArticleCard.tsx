@@ -1,15 +1,18 @@
 import VideoIcon from "./VideoIcon";
 import "../../styles/ArticleCard.css";
 
-export interface Article {
-    id: number;
+interface Article {
     title: string;
-    summary: string;
-    thumbnail: string;
-    category: string;
-    hasVideo: boolean;
+    link: string;
+    description: string;
+    pubDate: string;
+    content: string;
+    hasVideo?: boolean;
 }
-
+const getImageUrl = (content: string) => {
+    const doc = new DOMParser().parseFromString(content, "text/html");
+    return doc.querySelector("img")?.src || "";
+};
 interface ArticleCardProps {
     article: Article;
 }
@@ -19,11 +22,10 @@ function ArticleCard({article}: ArticleCardProps) {
         <article className="card">
             <div className="imageBox">
                 <img
-                    src={article.thumbnail}
+                    src={getImageUrl(article.content)}
                     alt={article.title}
                     className="image"
                 />
-
                 {article.hasVideo && (
                     <div className="videoIcon">
                         <VideoIcon/>
@@ -36,7 +38,7 @@ function ArticleCard({article}: ArticleCardProps) {
             </h3>
 
             <p className="summary">
-                {article.summary}
+                {article.description}
             </p>
         </article>
     );

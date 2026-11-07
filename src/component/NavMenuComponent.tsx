@@ -64,14 +64,13 @@ const listMenuItem: MenuItem[] = [
     { id: 31, name: "Du lịch", idParent: 30 },
 ];
 
-// Gắn đường dẫn cho từng mục menu con.
-// Tên bên trái phải GIỐNG HỆT name trong listMenuItem (chú ý dấu gạch dài "–").
 const routeMap: Record<string, string> = {
     "Asian Cup": "/asian-cup",
     "An ninh - Hình sự": "/an-ninh-hinh-su",
     "Thời trang": "/thoi-trang",
     "Thời trang Hi-tech": "/thoi-trang-hi-tech",
     "Tài chính – Bất động sản": "/tai-chinh-bat-dong-san",
+    "Tin tức trong ngày": "/trong-ngay"
 };
 
 const NavMenuComponent = () => {
@@ -90,7 +89,7 @@ const NavMenuComponent = () => {
                 <i className="fa-solid fa-bars"></i>
                 <div className="line"></div>
                 <Link to="/">
-                    <i className="fa-solid fa-house"></i>
+                    <i className="fa-solid fa-house" style={{color: "#ffffff"}}></i>
                 </Link>
                 {listMenu
                     .filter((item) => item.idParent === null)
