@@ -1,7 +1,7 @@
 import VideoIcon from "./VideoIcon";
 import "../../styles/ArticleCard.css";
 
-interface Article {
+export interface Article {
     title: string;
     link: string;
     description: string;
