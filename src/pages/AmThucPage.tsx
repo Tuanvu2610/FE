@@ -1,18 +1,11 @@
 import { useEffect, useState } from "react";
+import ArticleCard, {type Article} from "../component/home/ArticleCard";
 import SmallArticle from "../component/home/SmallArticle.tsx";
 import FeaturedArticle from "../component/home/FeaturedArticle.tsx";
 import SmallArticleRow from "../component/home/SmallArticleRow.tsx";
 import MarketNews from "../component/home/MarketNews.tsx";
 import NewsUpdate from "../component/home/NewsUpdate.tsx";
 import "../styles/TodayPage.css";
-
-interface Article {
-    title: string;
-    link: string;
-    description: string;
-    pubDate: string;
-    content: string;
-}
 
 const AmThucPage = () => {
     const [articles, setArticles] = useState<Article[]>([]);

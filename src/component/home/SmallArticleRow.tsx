@@ -11,7 +11,7 @@ function SmallArticleRow({articles}: SmallArticleRowProps) {
         <div className="articleRow">
             {articles.slice(0, 4).map((article) => (
                 <SmallArticle
-                    key={article.id}
+                    key={article.link}
                     article={article}
                 />
             ))}
