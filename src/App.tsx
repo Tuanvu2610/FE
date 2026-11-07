@@ -10,6 +10,7 @@ import AsianCupPage from "./pages/AsianCupPage";
 import CrimePage from "./pages/CrimePage";
 import FashionPage from "./pages/FashionPage";
 import HiTechPage from "./pages/HiTechPage";
+import FinancePage from "./pages/FinancePage";
 
 function HomePage() {
     const testArticle = {
@@ -63,6 +64,7 @@ function App() {
                 <Route path="/an-ninh-hinh-su" element={<CrimePage/>}/>
                 <Route path="/thoi-trang" element={<FashionPage/>}/>
                 <Route path="/thoi-trang-hi-tech" element={<HiTechPage/>}/>
+                <Route path="/tai-chinh-bat-dong-san" element={<FinancePage/>}/>
             </Routes>
 
             <BackToTop/>
