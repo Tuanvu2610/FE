@@ -12,6 +12,7 @@ import FashionPage from "./pages/FashionPage";
 import HiTechPage from "./pages/HiTechPage";
 import FinancePage from "./pages/FinancePage";
 import TodayPage from "./pages/TodayPage.tsx";
+import AmThucPage from "./pages/AmThucPage";
 
 function HomePage() {
     const testArticle = {
@@ -67,6 +68,7 @@ function App() {
                 <Route path="/thoi-trang-hi-tech" element={<HiTechPage/>}/>
                 <Route path="/tai-chinh-bat-dong-san" element={<FinancePage/>}/>
                 <Route path="/trong-ngay" element={<TodayPage/>}/>
+                <Route path="/am-thuc" element={<AmThucPage/>}/>
             </Routes>
 
             <BackToTop/>
