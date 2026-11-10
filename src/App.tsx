@@ -5,7 +5,7 @@ import DailyNews from "./component/DailyNews";
 import AdBanner from "./component/AdBanner";
 import BackToTop from "./component/BackToTop";
 import {FooterComponet, HeaderComponent} from "./component";
-import { Routes, Route } from "react-router-dom";
+import {Routes, Route} from "react-router-dom";
 import AsianCupPage from "./pages/AsianCupPage";
 import CrimePage from "./pages/CrimePage";
 import FashionPage from "./pages/FashionPage";
@@ -15,15 +15,18 @@ import TodayPage from "./pages/TodayPage.tsx";
 import AmThucPage from "./pages/AmThucPage";
 import FootballPage from "./pages/FootballPage.tsx";
 import BeautyPage from "./pages/BeautyPage.tsx";
+import GiaoDucPage from "./pages/GiaoDucPage";
+import BanTreCuocSongPage from "./pages/BanTreCuocSongPage.tsx";
+
 
 function HomePage() {
     const testArticle = {
-        id: 1,
         title: "Tin tức nổi bật trong ngày hôm nay",
-        summary: "Đây là nội dung mô tả ngắn của bài báo.",
-        thumbnail: "https://picsum.photos/800/450",
-        category: "Tin tức",
-        hasVideo: true
+        link: "#",
+        description: "Đây là nội dung mô tả ngắn của bài báo.",
+        pubDate: "2026-11-10",
+        content: '<img src="https://picsum.photos/800/450" />',
+        hasVideo: true,
     };
 
     const testArticleDetail = {
@@ -73,6 +76,8 @@ function App() {
                 <Route path="/trong-ngay" element={<TodayPage/>}/>
                 <Route path="/am-thuc" element={<AmThucPage/>}/>
                 <Route path="/lam-dep" element={<BeautyPage/>}/>
+                <Route path="/giao-duc-du-hoc" element={<GiaoDucPage/>}/>
+                <Route path="/ban-tre-cuoc-song" element={<BanTreCuocSongPage/>}/>
             </Routes>
 
             <BackToTop/>
