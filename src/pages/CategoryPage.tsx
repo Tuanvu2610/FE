@@ -15,7 +15,7 @@ interface NavItem {
 interface CategoryPageProps {
     title: string;
     source: string;
-    navItems: NavItem[];
+    navItems?: NavItem[];
     sideTitle: string;
     updateTitle: string;
 }
@@ -58,16 +58,16 @@ function CategoryPage({title, source, navItems, sideTitle, updateTitle}: Categor
                             ))}
                         </div>
                     </div>
-
-                    <div className="nav-banner">
-                        {navItems.map((item) => (
-                            <div className="cover-nav-banner" key={item.label}>
-                                <i className={`fa-solid ${item.icon}`}></i>
-                                <p>{item.label}</p>
-                            </div>
-                        ))}
-                    </div>
-
+                    {navItems?.length > 0 && (
+                        <div className="nav-banner">
+                            {navItems.map((item) => (
+                                <div className="cover-nav-banner" key={item.label}>
+                                    <i className={`fa-solid ${item.icon}`}></i>
+                                    <p>{item.label}</p>
+                                </div>
+                            ))}
+                        </div>
+                    )}
                     <div className="cover-news">
                         <div className="cover-news-left">
                             <h3>NHIỀU NGƯỜI ĐỌC</h3>
