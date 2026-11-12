@@ -66,6 +66,7 @@ const listMenuItem: MenuItem[] = [
 
 const routeMap: Record<string, string> = {
     "Asian Cup": "/asian-cup",
+    "Bóng đá": "/bong-da",
     "An ninh - Hình sự": "/an-ninh-hinh-su",
     "Thời trang": "/thoi-trang",
     "Thời trang Hi-tech": "/thoi-trang-hi-tech",
@@ -74,6 +75,7 @@ const routeMap: Record<string, string> = {
     "Ẩm thực": "/am-thuc",
     "Giáo dục - du học": "/giao-duc-du-hoc",
     "Bạn trẻ - Cuộc sống": "/ban-tre-cuoc-song"
+    "Làm đẹp": "/lam-dep"
 };
 
 const NavMenuComponent = () => {

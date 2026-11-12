@@ -13,8 +13,11 @@ import HiTechPage from "./pages/HiTechPage";
 import FinancePage from "./pages/FinancePage";
 import TodayPage from "./pages/TodayPage.tsx";
 import AmThucPage from "./pages/AmThucPage";
+import FootballPage from "./pages/FootballPage.tsx";
+import BeautyPage from "./pages/BeautyPage.tsx";
 import GiaoDucPage from "./pages/GiaoDucPage";
 import BanTreCuocSongPage from "./pages/BanTreCuocSongPage.tsx";
+
 
 function HomePage() {
     const testArticle = {
@@ -64,6 +67,7 @@ function App() {
 
             <Routes>
                 <Route path="/" element={<HomePage/>}/>
+                <Route path="/bong-da" element={<FootballPage/>}/>
                 <Route path="/asian-cup" element={<AsianCupPage/>}/>
                 <Route path="/an-ninh-hinh-su" element={<CrimePage/>}/>
                 <Route path="/thoi-trang" element={<FashionPage/>}/>
@@ -71,6 +75,7 @@ function App() {
                 <Route path="/tai-chinh-bat-dong-san" element={<FinancePage/>}/>
                 <Route path="/trong-ngay" element={<TodayPage/>}/>
                 <Route path="/am-thuc" element={<AmThucPage/>}/>
+                <Route path="/lam-dep" element={<BeautyPage/>}/>
                 <Route path="/giao-duc-du-hoc" element={<GiaoDucPage/>}/>
                 <Route path="/ban-tre-cuoc-song" element={<BanTreCuocSongPage/>}/>
             </Routes>
