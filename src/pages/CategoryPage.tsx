@@ -20,7 +20,7 @@ interface CategoryPageProps {
     updateTitle: string;
 }
 
-function CategoryPage({title, source, navItems, sideTitle, updateTitle}: CategoryPageProps) {
+function CategoryPage({title, source, navItems = [], sideTitle, updateTitle}: CategoryPageProps) {
     const {items: articles, loading, error} = useArticles(source);
 
     return (
