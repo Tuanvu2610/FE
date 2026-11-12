@@ -74,7 +74,7 @@ const routeMap: Record<string, string> = {
     "Tin tức trong ngày": "/trong-ngay",
     "Ẩm thực": "/am-thuc",
     "Giáo dục - du học": "/giao-duc-du-hoc",
-    "Bạn trẻ - Cuộc sống": "/ban-tre-cuoc-song"
+    "Bạn trẻ - Cuộc sống": "/ban-tre-cuoc-song",
     "Làm đẹp": "/lam-dep"
 };
 
