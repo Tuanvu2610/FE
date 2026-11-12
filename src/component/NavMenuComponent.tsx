@@ -73,6 +73,8 @@ const routeMap: Record<string, string> = {
     "Tài chính – Bất động sản": "/tai-chinh-bat-dong-san",
     "Tin tức trong ngày": "/trong-ngay",
     "Ẩm thực": "/am-thuc",
+    "Giáo dục - du học": "/giao-duc-du-hoc",
+    "Bạn trẻ - Cuộc sống": "/ban-tre-cuoc-song"
     "Làm đẹp": "/lam-dep"
 };
 
