@@ -75,7 +75,8 @@ const routeMap: Record<string, string> = {
     "Ẩm thực": "/am-thuc",
     "Giáo dục - du học": "/giao-duc-du-hoc",
     "Bạn trẻ - Cuộc sống": "/ban-tre-cuoc-song",
-    "Làm đẹp": "/lam-dep"
+    "Làm đẹp": "/lam-dep",
+    "Phim": "/phim",
 };
 
 const NavMenuComponent = () => {

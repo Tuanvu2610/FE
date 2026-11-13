@@ -72,11 +72,11 @@ function CategoryPage({title, source, navItems = [], sideTitle, updateTitle}: Ca
                         <div className="cover-news-left">
                             <h3>NHIỀU NGƯỜI ĐỌC</h3>
                             <div>
-                                <SmallArticleRow articles={articles.slice(5, 9)}/>
+                                <SmallArticleRow articles={articles.slice(5, 14)}/>
                             </div>
                             <div>
                                 <h3>{updateTitle}</h3>
-                                {articles.slice(14, 19).map((a) => (
+                                {articles.slice(15, 24).map((a) => (
                                     <NewsUpdate key={a.link} article={a}/>
                                 ))}
                             </div>
@@ -87,7 +87,7 @@ function CategoryPage({title, source, navItems = [], sideTitle, updateTitle}: Ca
                             </button>
                             <h3 style={{color: "#518f02"}}>{sideTitle}</h3>
                             <div>
-                                {articles.slice(9, 14).map((a) => (
+                                {articles.slice(9, 15).map((a) => (
                                     <MarketNews key={a.link} article={a}/>
                                 ))}
                             </div>
