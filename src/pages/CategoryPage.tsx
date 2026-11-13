@@ -5,6 +5,7 @@ import SmallArticleRow from "../component/home/SmallArticleRow.tsx";
 import MarketNews from "../component/home/MarketNews.tsx";
 import NewsUpdate from "../component/home/NewsUpdate.tsx";
 import {useArticles} from "../hooks/useArticles";
+import "../styles/PageHeading.css";
 import "../styles/TodayPage.css";
 
 interface NavItem {

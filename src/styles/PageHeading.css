@@ -1,0 +1,39 @@
+.fashion-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-size: 13px;
+    color: #888;
+}
+
+.fashion-breadcrumb a {
+    color: #555;
+    text-decoration: none;
+}
+
+.fashion-breadcrumb strong {
+    color: #222;
+}
+
+.fashion-heading {
+    border-bottom: 2px solid #e5e5e5;
+    margin-bottom: 20px;
+}
+
+.fashion-heading h1 {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 700;
+    color: #222;
+    margin: 0;
+    padding: 0 0 10px;
+    border-bottom: 3px solid #ed1c24;
+    letter-spacing: 0;
+}
+
+@media (max-width: 480px) {
+    .fashion-heading h1 {
+        font-size: 21px;
+    }
+}

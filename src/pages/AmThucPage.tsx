@@ -6,6 +6,7 @@ import SmallArticleRow from "../component/home/SmallArticleRow.tsx";
 import MarketNews from "../component/home/MarketNews.tsx";
 import NewsUpdate from "../component/home/NewsUpdate.tsx";
 import "../styles/TodayPage.css";
+import "../styles/PageHeading.css";
 
 const AmThucPage = () => {
     const [articles, setArticles] = useState<Article[]>([]);
