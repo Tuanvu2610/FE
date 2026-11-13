@@ -1,7 +1,10 @@
+.smallArticleRow {
+    position: relative;
+}
 .articleRow {
     display: grid;
     grid-auto-flow: column;
-    grid-auto-columns: calc((100% - 48px) / 4);
+    grid-auto-columns: calc((100% - 48px) / 3);
     gap: 16px;
     margin-top: 20px;
     width: 100%;
@@ -17,4 +20,42 @@
         grid-template-columns: 1fr;
         gap: 16px;
     }
+}
+.arrow-right {
+    position: absolute;
+    top: 30%;
+    right: 0;
+    padding: 10px 15px;
+    border-radius: 25px;
+    background: #ffffffb0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+    border: none;
+}
+.arrow-left {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    padding: 10px 15px;
+    border-radius: 25px;
+    background: #ffffffb0;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+    border: none;
+}
+.btn-hover:hover {
+    background: #fff;
+    cursor: pointer;
+}
+.smallArticleRow:hover .arrow-right{
+    opacity: 1;
+    visibility: visible;
+}
+.smallArticleRow:hover .arrow-left {
+    opacity: 1;
+    visibility: visible;
 }
