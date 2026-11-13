@@ -15,6 +15,7 @@ import BeautyPage from "./pages/BeautyPage.tsx";
 import GiaoDucPage from "./pages/GiaoDucPage";
 import BanTreCuocSongPage from "./pages/BanTreCuocSongPage.tsx";
 import FilmPage from "./pages/FilmPage.tsx";
+import CaNhacMTVPage from "./pages/CaNhacMTVPage.tsx";
 
 function App() {
     return (
@@ -35,6 +36,7 @@ function App() {
                 <Route path="/giao-duc-du-hoc" element={<GiaoDucPage/>}/>
                 <Route path="/ban-tre-cuoc-song" element={<BanTreCuocSongPage/>}/>
                 <Route path="/phim" element={<FilmPage/>}/>
+                <Route path="/ca-nhac-mtv" element={<CaNhacMTVPage/>}/>
             </Routes>
 
             <BackToTop/>
