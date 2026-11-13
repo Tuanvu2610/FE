@@ -76,6 +76,7 @@ const routeMap: Record<string, string> = {
     "Giáo dục - du học": "/giao-duc-du-hoc",
     "Bạn trẻ - Cuộc sống": "/ban-tre-cuoc-song",
     "Làm đẹp": "/lam-dep",
+    "Phim": "/phim",
     "Ca nhạc - MTV": "/ca-nhac-mtv",
 };
 
