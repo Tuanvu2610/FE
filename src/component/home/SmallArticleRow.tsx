@@ -17,7 +17,6 @@ function SmallArticleRow({articles}: SmallArticleRowProps) {
 
             row.scrollBy({
                 left: direction * (firstArticle.offsetWidth + 16),
-                behavior: "smooth"
             });
         }
     };

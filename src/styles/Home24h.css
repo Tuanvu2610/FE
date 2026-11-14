@@ -124,3 +124,22 @@
         grid-template-columns: 1fr;
     }
 }
+
+
+/**/
+.cover-news-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e5e5e5;
+    align-items: start;
+    padding-top: 20px;
+    border-top: 2px solid #e5e5e5;
+}
+.body-left-3 {
+    border-right: 1px solid #e5e5e5;
+    padding-right: 30px;
+}
+.body-right-3 {
+    padding-left: 30px;
+}
