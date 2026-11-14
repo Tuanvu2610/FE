@@ -12,6 +12,8 @@ const Home = () => {
     const {items: footballNews} = useArticles("bongda");
     const {items: businessNews} = useArticles("kinhdoanh");
     const {items: techNews} = useArticles("congnghe");
+    const {items: healthy} = useArticles("suckhoedoisong");
+    const {items: thitruongtieudung} = useArticles("thitruongTieudung");
 
     if (loading) return <div className="home-status">Đang tải tin tức 24h...</div>;
     if (error) return <div className="home-status error">{error}</div>;
@@ -108,6 +110,47 @@ const Home = () => {
                         ))}
                     </div>
                 </aside>
+            </section>
+            <section className="cover-news-3">
+                <div className="body-left-3">
+                    {/* Box chuyên mục sức khỏe */}
+                    {healthy && healthy.length > 0 && (
+                        <div className="category-box-24h">
+                            <div className="box-header-24h">
+                                <h2>SỨC KHỎE</h2>
+                                <div className="sub-links">
+                                    <span>Bệnh tim</span>
+                                    <span>Đột quỵ</span>
+                                    <span>Ung thư</span>
+                                </div>
+                            </div>
+                            <div className="box-content-24h">
+                                {healthy.slice(0, 4).map((art) => (
+                                    <NewsUpdate key={art.link} article={art}/>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+                </div>
+                <div className="body-right-3">
+                    {/* Box chuyên mục THỊ TRƯỜNG TIÊU DÙNG*/}
+                    {thitruongtieudung && thitruongtieudung.length > 0 && (
+                        <div className="category-box-24h">
+                            <div className="box-header-24h">
+                                <h2>THỊ TRƯỜNG TIÊU DÙNG</h2>
+                                <div className="sub-links">
+                                    <span>Thị trường 24h</span>
+                                </div>
+                            </div>
+                            <div className="box-content-24h">
+                                {thitruongtieudung.slice(0, 4).map((art) => (
+                                    <NewsUpdate key={art.link} article={art}/>
+                                ))}
+                            </div>
+                        </div>
+                    )}
+
+                </div>
             </section>
         </div>
     );
