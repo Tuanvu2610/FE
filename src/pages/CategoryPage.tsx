@@ -7,6 +7,7 @@ import NewsUpdate from "../component/home/NewsUpdate.tsx";
 import {useArticles} from "../hooks/useArticles";
 import "../styles/PageHeading.css";
 import "../styles/TodayPage.css";
+import {useState} from "react";
 
 interface NavItem {
     icon: string;
@@ -23,7 +24,7 @@ interface CategoryPageProps {
 
 function CategoryPage({title, source, navItems = [], sideTitle, updateTitle}: CategoryPageProps) {
     const {items: articles, loading, error} = useArticles(source);
-
+    const [showAll, setShowAll] = useState(false);
     return (
         <div className="main-content">
             <div className="today-heading">
@@ -77,9 +78,12 @@ function CategoryPage({title, source, navItems = [], sideTitle, updateTitle}: Ca
                             </div>
                             <div>
                                 <h3>{updateTitle}</h3>
-                                {articles.slice(15, 24).map((a) => (
+                                {articles.slice(15, showAll ? 24 : 20).map((a) => (
                                     <NewsUpdate key={a.link} article={a}/>
                                 ))}
+                                <button className="btn-show" onClick={() => setShowAll(!showAll)}>
+                                    {showAll ? "- Ẩn bớt tin tức" : "+ Xem thêm tin mới"}
+                                </button>
                             </div>
                         </div>
                         <div className="cover-news-right">
