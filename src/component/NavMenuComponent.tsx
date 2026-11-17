@@ -62,6 +62,8 @@ const listMenuItem: MenuItem[] = [
     // DU LỊCH
     { id: 30, name: "DU LỊCH", idParent: null },
     { id: 31, name: "Du lịch", idParent: 30 },
+
+    { id: 32, name: "Tra cứu phường xã", idParent: 1 },
 ];
 
 const routeMap: Record<string, string> = {
@@ -78,6 +80,7 @@ const routeMap: Record<string, string> = {
     "Làm đẹp": "/lam-dep",
     "Phim": "/phim",
     "Ca nhạc - MTV": "/ca-nhac-mtv",
+    "Tra cứu phường xã": "/tra-cuu-phuong-xa",
 };
 
 const NavMenuComponent = () => {

@@ -2,9 +2,9 @@ import "../../styles/ArticleDetail.css";
 
 interface ArticleDetailProps {
     title: string;
-    author: string;
+    author?: string;
     date: string;
-    image: string;
+    image?: string;
     category: string;
     content: string[];
 }
@@ -16,17 +16,19 @@ function ArticleDetail({ article }: { article: ArticleDetailProps }) {
 
             <h1 className="article-detail-title">{article.title}</h1>
 
-            <div className="article-detail-meta">
-                <span>Tác giả: <strong>{article.author}</strong></span>
-                <span>{article.date}</span>
-            </div>
+            {article.image && (
+                <div className="article-detail-meta">
+                    <span>Tác giả: <strong>{article.author}</strong></span>
+                    <span>{article.date}</span>
+                </div>
+            )}
 
-            <img
+            {article.image && (
+                <img
                 className="article-detail-image"
                 src={article.image}
-                alt={article.title}
-            />
-
+                alt={article.title}/>
+            ) }
             <div className="article-detail-content">
                 {article.content.map((paragraph, index) => (
                     <p key={index}>{paragraph}</p>
