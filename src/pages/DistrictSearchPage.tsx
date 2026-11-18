@@ -3,9 +3,79 @@ import "../styles/DistrictPage.css"
 import ArticleDetail from "../component/home/ArticleDetail.tsx";
 import MarketNews from "../component/home/MarketNews.tsx";
 import {useArticles} from "../hooks/useArticles.tsx";
+import {useDispatch, useSelector} from "react-redux";
+import type {RootState} from "../store/store.ts";
+import {useEffect, useRef} from "react";
+import {load} from "../store/slice/DistrictSlice.ts";
+import $ from "jquery";
+import DataTable from "datatables.net-dt";
+import "datatables.net-dt/css/dataTables.dataTables.css";
+DataTable.use($);
+const provinceNames: Record<string, string> = {
+    "01": "Hà Nội",
+    "04": "Cao Bằng",
+    "08": "Tuyên Quang",
+    "11": "Điện Biên",
+    "12": "Lai Châu",
+    "14": "Sơn La",
+    "15": "Lào Cai",
+    "19": "Thái Nguyên",
+    "20": "Lạng Sơn",
+    "22": "Quảng Ninh",
+    "24": "Bắc Ninh",
+    "25": "Phú Thọ",
+    "31": "Hải Phòng",
+    "33": "Hưng Yên",
+    "37": "Ninh Bình",
+    "38": "Thanh Hóa",
+    "40": "Nghệ An",
+    "42": "Hà Tĩnh",
+    "44": "Quảng Trị",
+    "46": "Huế",
+    "48": "Đà Nẵng",
+    "51": "Quảng Ngãi",
+    "52": "Gia Lai",
+    "56": "Khánh Hòa",
+    "66": "Đắk Lắk",
+    "68": "Lâm Đồng",
+    "75": "Đồng Nai",
+    "79": "TP. Hồ Chí Minh",
+    "80": "Tây Ninh",
+    "82": "Đồng Tháp",
+    "86": "Vĩnh Long",
+    "91": "An Giang",
+    "92": "Cần Thơ",
+    "96": "Cà Mau"
+};
 const DistrictSearchPage = () => {
     const {items: articles, loading, error} = useArticles("trongngay");
     const {items: articles2} = useArticles("suckhoedoisong");
+    const listDistrict = useSelector((state: RootState) => state.district);
+    const dispatch = useDispatch();
+    const tableRef = useRef<HTMLTableElement>(null);
+    useEffect(() => {
+        fetch("/data/dataDistrict.json")
+            .then(res => res.json())
+                .then(json => {
+                    dispatch(load(json.data));
+                })
+            .catch((error) => {
+                console.error(error);
+            });
+    }, [dispatch]);
+    useEffect(() => {
+        if (!tableRef.current || listDistrict.length === 0) return;
+        const table = $(tableRef.current).DataTable({
+            paging: true,
+            searching: true,
+            ordering: true,
+            pageLength: 15,
+            lengthMenu: [15, 30, 50, 100],
+        });
+        return () => {
+            table.destroy();
+        };
+    }, [listDistrict, loading, error]);
     const page = {
         title: "Tra cứu chi tiết 3.321 phường, xã, đặc khu của 34 tỉnh, thành phố sau sắp xếp",
         date: "Thứ Tư, ngày 02/07/2025 17:50 PM (GMT+7)",
@@ -38,6 +108,26 @@ const DistrictSearchPage = () => {
                <div className="cover-content-district">
                    <div className="district-left">
                        <ArticleDetail article={page}/>
+                       <div className="cover-datatable">
+                           <table ref={tableRef} id="myTable">
+                               <thead>
+                               <tr>
+                                   <th>Tỉnh/Thành phố</th>
+                                   <th>Phường/Xã mới</th>
+                                   <th>Phường/Xã cũ</th>
+                               </tr>
+                               </thead>
+                               <tbody>
+                               {listDistrict.map((item) => (
+                                   <tr key={item.old_province_code}>
+                                       <td>{provinceNames[item.new_province_code]}</td>
+                                       <td>{item.new_ward_name}</td>
+                                       <td>{item.old_ward_name} - {item.old_district_name}</td>
+                                   </tr>
+                               ))}
+                               </tbody>
+                           </table>
+                       </div>
                    </div>
                    <div className="district-right">
                        <div>

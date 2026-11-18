@@ -11,12 +11,15 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.13.0",
+    "datatables.net-dt": "^3.1.5",
+    "jquery": "^4.1.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
     "react-redux": "^9.3.1",
     "react-router-dom": "^7.18.5"
   },
   "devDependencies": {
+    "@types/jquery": "^4.0.1",
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",

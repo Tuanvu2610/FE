@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import MenuItems from "./slice/MenuItems.ts";
+import DistrictSlice from "./slice/DistrictSlice.ts";
 
 export const store = configureStore({
     reducer: {
-        menuItems: MenuItems
+        menuItems: MenuItems,
+        district : DistrictSlice
     }
 });
 
