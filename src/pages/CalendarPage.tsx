@@ -1,5 +1,6 @@
 import {useState} from "react";
 import {Link} from "react-router-dom";
+import LichNews from "../component/LichNews";
 
 const DAYS_OF_WEEK = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật"];
 
@@ -217,6 +218,7 @@ const CalendarPage = () => {
                     </div>
                 </div>
             </div>
+            <LichNews/>
         </div>
     );
 };
