@@ -11,7 +11,7 @@ export interface LunarDate {
     leap: boolean;
 }
 
-function jdFromDate(dd: number, mm: number, yy: number): number {
+export function jdFromDate(dd: number, mm: number, yy: number): number {
     const a = INT((14 - mm) / 12);
     const y = yy + 4800 - a;
     const m = mm + 12 * a - 3;
