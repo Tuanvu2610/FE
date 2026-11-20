@@ -1,8 +1,8 @@
 import './App.css'
 import Home from "./component/Home";
 import BackToTop from "./component/BackToTop";
-import {FooterComponet, HeaderComponent} from "./component";
-import {Routes, Route} from "react-router-dom";
+import { FooterComponet, HeaderComponent } from "./component";
+import { Routes, Route } from "react-router-dom";
 import AsianCupPage from "./pages/AsianCupPage";
 import CrimePage from "./pages/CrimePage";
 import FashionPage from "./pages/FashionPage";
@@ -18,33 +18,35 @@ import FilmPage from "./pages/FilmPage.tsx";
 import CaNhacMTVPage from "./pages/CaNhacMTVPage.tsx";
 import CalendarPage from "./pages/CalendarPage";
 import DistrictSearchPage from "./pages/DistrictSearchPage.tsx";
+import WeatherPage from "./pages/WeatherPage.tsx";
 
 function App() {
     return (
         <>
-            <HeaderComponent/>
+            <HeaderComponent />
 
             <Routes>
-                <Route path="/" element={<Home/>}/>
-                <Route path="/bong-da" element={<FootballPage/>}/>
-                <Route path="/asian-cup" element={<AsianCupPage/>}/>
-                <Route path="/an-ninh-hinh-su" element={<CrimePage/>}/>
-                <Route path="/thoi-trang" element={<FashionPage/>}/>
-                <Route path="/thoi-trang-hi-tech" element={<HiTechPage/>}/>
-                <Route path="/tai-chinh-bat-dong-san" element={<FinancePage/>}/>
-                <Route path="/trong-ngay" element={<TodayPage/>}/>
-                <Route path="/am-thuc" element={<AmThucPage/>}/>
-                <Route path="/lam-dep" element={<BeautyPage/>}/>
-                <Route path="/giao-duc-du-hoc" element={<GiaoDucPage/>}/>
-                <Route path="/ban-tre-cuoc-song" element={<BanTreCuocSongPage/>}/>
-                <Route path="/phim" element={<FilmPage/>}/>
-                <Route path="/ca-nhac-mtv" element={<CaNhacMTVPage/>}/>
+                <Route path="/" element={<Home />} />
+                <Route path="/bong-da" element={<FootballPage />} />
+                <Route path="/asian-cup" element={<AsianCupPage />} />
+                <Route path="/an-ninh-hinh-su" element={<CrimePage />} />
+                <Route path="/thoi-trang" element={<FashionPage />} />
+                <Route path="/thoi-trang-hi-tech" element={<HiTechPage />} />
+                <Route path="/tai-chinh-bat-dong-san" element={<FinancePage />} />
+                <Route path="/trong-ngay" element={<TodayPage />} />
+                <Route path="/am-thuc" element={<AmThucPage />} />
+                <Route path="/lam-dep" element={<BeautyPage />} />
+                <Route path="/giao-duc-du-hoc" element={<GiaoDucPage />} />
+                <Route path="/ban-tre-cuoc-song" element={<BanTreCuocSongPage />} />
+                <Route path="/phim" element={<FilmPage />} />
+                <Route path="/ca-nhac-mtv" element={<CaNhacMTVPage />} />
                 <Route path="/lich" element={<CalendarPage />} />
                 <Route path="/tra-cuu-phuong-xa" element={<DistrictSearchPage />} />
+                <Route path="/du-bao-thoi-tiet" element={<WeatherPage />} />
             </Routes>
 
-            <BackToTop/>
-            <FooterComponet/>
+            <BackToTop />
+            <FooterComponet />
         </>
     );
 }
