@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import LichNews from "../component/LichNews";
+import {getLunarDate, getCanChiYear, getCanChiMonth, getCanChiDay} from "../utils/lunar";
 
 const DAYS_OF_WEEK = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật"];
 
@@ -9,11 +10,13 @@ const CalendarPage = () => {
     const [currentMonth, setCurrentMonth] = useState(today.getMonth());
     const [currentYear, setCurrentYear] = useState(today.getFullYear());
     const [selectedDate, setSelectedDate] = useState<Date>(today);
-
-    // Lấy số ngày trong tháng
+    const selectedLunar = getLunarDate(
+        selectedDate.getDate(),
+        selectedDate.getMonth() + 1,
+        selectedDate.getFullYear()
+    );
     const getDaysInMonth = (year: number, month: number) => new Date(year, month + 1, 0).getDate();
 
-    // Lấy thứ của ngày mùng 1 (chuyển Chủ nhật = 0 thành 6 để Thứ 2 đứng đầu tuần)
     const getFirstDayOfMonth = (year: number, month: number) => {
         const day = new Date(year, month, 1).getDay();
         return day === 0 ? 6 : day - 1;
@@ -44,23 +47,14 @@ const CalendarPage = () => {
         setSelectedDate(now);
     };
 
-    // Tính ngày Âm lịch bằng API có sẵn của trình duyệt (hỗ trợ chuẩn tiếng Việt)
     const getLunarDateText = (date: Date) => {
-        try {
-            const formatter = new Intl.DateTimeFormat("vi-VN-u-ca-chinese", {
-                day: "numeric",
-                month: "numeric",
-            });
-            return formatter.format(date);
-        } catch {
-            return "";
-        }
+        const lunar = getLunarDate(date.getDate(), date.getMonth() + 1, date.getFullYear());
+        return `${lunar.day}/${lunar.month}`;
     };
 
     const daysInMonth = getDaysInMonth(currentYear, currentMonth);
     const firstDayIndex = getFirstDayOfMonth(currentYear, currentMonth);
 
-    // Tạo mảng các ô trong lưới lịch
     const calendarCells: (number | null)[] = [
         ...Array(firstDayIndex).fill(null),
         ...Array.from({length: daysInMonth}, (_, i) => i + 1),
@@ -123,19 +117,23 @@ const CalendarPage = () => {
                     }}>
                         <div style={{fontSize: "13px", color: "#666"}}>Âm lịch (Ngày / Tháng)</div>
                         <div style={{fontSize: "20px", fontWeight: "bold", color: "#518f02", marginTop: "4px"}}>
-                            Ngày {getLunarDateText(selectedDate)}
+                            Ngày {selectedLunar.day}/{selectedLunar.month}
+                        </div>
+                        <div style={{fontSize: "13px", color: "#555", marginTop: "10px", lineHeight: 1.6}}>
+                            Tháng {selectedLunar.month}{selectedLunar.leap ? " (nhuận)" : ""} năm {getCanChiYear(selectedLunar.year)}
+                            <br/>
+                            Ngày {getCanChiDay(selectedDate.getDate(), selectedDate.getMonth() + 1, selectedDate.getFullYear())}
+                            {" - "}Tháng {getCanChiMonth(selectedLunar.month, selectedLunar.year)}
                         </div>
                     </div>
                 </div>
 
-                {/* CỘT PHẢI: BẢNG LỊCH THÁNG */}
                 <div style={{
                     border: "1px solid #e0e0e0",
                     borderRadius: "10px",
                     padding: "20px",
                     backgroundColor: "#fff"
                 }}>
-                    {/* Thanh điều hướng tháng */}
                     <div style={{
                         display: "flex",
                         justifyContent: "space-between",
@@ -155,7 +153,6 @@ const CalendarPage = () => {
                         <button onClick={handleNextMonth} style={navBtnStyle}>Tháng sau ›</button>
                     </div>
 
-                    {/* Tiêu đề các thứ trong tuần */}
                     <div style={{
                         display: "grid",
                         gridTemplateColumns: "repeat(7, 1fr)",
@@ -175,7 +172,6 @@ const CalendarPage = () => {
                         ))}
                     </div>
 
-                    {/* Lưới các ngày trong tháng */}
                     <div style={{display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "4px"}}>
                         {calendarCells.map((day, index) => {
                             if (!day) return <div key={`empty-${index}`} style={{height: "64px"}}/>;
@@ -218,6 +214,7 @@ const CalendarPage = () => {
                     </div>
                 </div>
             </div>
+
             <LichNews/>
         </div>
     );
