@@ -11,6 +11,16 @@ import $ from "jquery";
 import DataTable from "datatables.net-dt";
 import "datatables.net-dt/css/dataTables.dataTables.css";
 DataTable.use($);
+interface District {
+    old_ward_code: string;
+    old_ward_name: string;
+    old_district_code: string;
+    old_district_name: string;
+    old_province_code: string;
+    new_ward_code: string;
+    new_ward_name: string;
+    new_province_code: string;
+}
 const provinceNames: Record<string, string> = {
     "01": "Hà Nội",
     "04": "Cao Bằng",
@@ -50,7 +60,7 @@ const provinceNames: Record<string, string> = {
 const DistrictSearchPage = () => {
     const {items: articles, loading, error} = useArticles("trongngay");
     const {items: articles2} = useArticles("suckhoedoisong");
-    const listDistrict = useSelector((state: RootState) => state.district);
+    const listDistrict = useSelector((state: RootState) => state.district) as District[];
     const dispatch = useDispatch();
     const tableRef = useRef<HTMLTableElement>(null);
     useEffect(() => {
@@ -118,11 +128,12 @@ const DistrictSearchPage = () => {
                                </tr>
                                </thead>
                                <tbody>
-                               {listDistrict.map((item) => (
-                                   <tr key={item.old_province_code}>
+                               {listDistrict.map((item: District) => (
+                                   <tr key={`${item.old_ward_code}-${item.old_province_code}`}>
                                        <td>{provinceNames[item.new_province_code]}</td>
                                        <td>{item.new_ward_name}</td>
-                                       <td>{item.old_ward_name} - {item.old_district_name}</td>
+                                       {/*<td>{`${item.old_ward_name} - ${item.old_district_name}`}</td>*/}
+                                       <td>{item.old_ward_name?`${item.old_ward_name} - ${item.old_district_name}`: `${item.old_district_name}`}</td>
                                    </tr>
                                ))}
                                </tbody>
