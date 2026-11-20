@@ -1,11 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import MenuItems from "./slice/MenuItems.ts";
 import DistrictSlice from "./slice/DistrictSlice.ts";
+import WeatherSlice from "./slice/WeatherSlice.ts";
 
 export const store = configureStore({
     reducer: {
         menuItems: MenuItems,
-        district : DistrictSlice
+        district: DistrictSlice,
+        weather: WeatherSlice
     }
 });
 
