@@ -1,7 +1,8 @@
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import LichNews from "../component/LichNews";
-import {getLunarDate, getCanChiYear, getCanChiMonth, getCanChiDay} from "../utils/lunar";
+import DayPanel from "../component/DayPanel";
+import {getLunarDate} from "../utils/lunar";
 
 const DAYS_OF_WEEK = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật"];
 
@@ -10,11 +11,7 @@ const CalendarPage = () => {
     const [currentMonth, setCurrentMonth] = useState(today.getMonth());
     const [currentYear, setCurrentYear] = useState(today.getFullYear());
     const [selectedDate, setSelectedDate] = useState<Date>(today);
-    const selectedLunar = getLunarDate(
-        selectedDate.getDate(),
-        selectedDate.getMonth() + 1,
-        selectedDate.getFullYear()
-    );
+
     const getDaysInMonth = (year: number, month: number) => new Date(year, month + 1, 0).getDate();
 
     const getFirstDayOfMonth = (year: number, month: number) => {
@@ -47,6 +44,13 @@ const CalendarPage = () => {
         setSelectedDate(now);
     };
 
+    const moveDay = (delta: number) => {
+        const next = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + delta);
+        setSelectedDate(next);
+        setCurrentMonth(next.getMonth());
+        setCurrentYear(next.getFullYear());
+    };
+
     const getLunarDateText = (date: Date) => {
         const lunar = getLunarDate(date.getDate(), date.getMonth() + 1, date.getFullYear());
         return `${lunar.day}/${lunar.month}`;
@@ -74,144 +78,96 @@ const CalendarPage = () => {
                 <strong>Lịch Vạn Niên</strong>
             </div>
 
-            <div style={{display: "grid", gridTemplateColumns: "320px 1fr", gap: "24px", alignItems: "start"}}>
-                {/* CỘT TRÁI: TỜ LỊCH CHI TIẾT NGÀY ĐANG CHỌN */}
+            <DayPanel
+                date={selectedDate}
+                onPrev={() => moveDay(-1)}
+                onNext={() => moveDay(1)}
+            />
+
+            <div style={{
+                marginTop: "16px",
+                border: "1px solid #e0e0e0",
+                borderRadius: "10px",
+                padding: "20px",
+                backgroundColor: "#fff"
+            }}>
                 <div style={{
-                    border: "2px solid #78b43d",
-                    borderRadius: "10px",
-                    overflow: "hidden",
-                    textAlign: "center",
-                    backgroundColor: "#fff",
-                    boxShadow: "0 4px 12px rgba(0,0,0,0.06)"
+                    display: "flex",
+                    justifyContent: "space-between",
+                    alignItems: "center",
+                    marginBottom: "16px"
                 }}>
-                    <div style={{
-                        backgroundColor: "#78b43d",
-                        color: "#fff",
-                        padding: "12px",
-                        fontWeight: "bold",
-                        fontSize: "18px"
-                    }}>
-                        THÁNG {selectedDate.getMonth() + 1} - NĂM {selectedDate.getFullYear()}
+                    <button onClick={handlePrevMonth} style={navBtnStyle}>‹ Tháng trước</button>
+                    <div style={{display: "flex", alignItems: "center", gap: "12px"}}>
+                        <h2 style={{margin: 0, fontSize: "20px", color: "#518f02"}}>
+                            Tháng {currentMonth + 1} / {currentYear}
+                        </h2>
+                        <button onClick={handleToday}
+                                style={{...navBtnStyle, backgroundColor: "#78b43d", color: "#fff", border: "none"}}>
+                            Hôm nay
+                        </button>
                     </div>
-
-                    <div style={{padding: "28px 16px"}}>
-                        <div style={{fontSize: "16px", color: "#555", marginBottom: "8px"}}>Dương lịch</div>
-                        <div style={{
-                            fontSize: "84px",
-                            fontWeight: "bold",
-                            lineHeight: "1",
-                            color: selectedDate.getDay() === 0 ? "#d93025" : "#518f02"
-                        }}>
-                            {selectedDate.getDate()}
-                        </div>
-                        <div style={{fontSize: "18px", fontWeight: "bold", marginTop: "12px", color: "#333"}}>
-                            {selectedDate.getDay() === 0 ? "Chủ Nhật" : `Thứ ${selectedDate.getDay() + 1}`}
-                        </div>
-                    </div>
-
-                    <div style={{
-                        backgroundColor: "#f4f9ee",
-                        borderTop: "1px solid #dcedc8",
-                        padding: "16px",
-                        color: "#333"
-                    }}>
-                        <div style={{fontSize: "13px", color: "#666"}}>Âm lịch (Ngày / Tháng)</div>
-                        <div style={{fontSize: "20px", fontWeight: "bold", color: "#518f02", marginTop: "4px"}}>
-                            Ngày {selectedLunar.day}/{selectedLunar.month}
-                        </div>
-                        <div style={{fontSize: "13px", color: "#555", marginTop: "10px", lineHeight: 1.6}}>
-                            Tháng {selectedLunar.month}{selectedLunar.leap ? " (nhuận)" : ""} năm {getCanChiYear(selectedLunar.year)}
-                            <br/>
-                            Ngày {getCanChiDay(selectedDate.getDate(), selectedDate.getMonth() + 1, selectedDate.getFullYear())}
-                            {" - "}Tháng {getCanChiMonth(selectedLunar.month, selectedLunar.year)}
-                        </div>
-                    </div>
+                    <button onClick={handleNextMonth} style={navBtnStyle}>Tháng sau ›</button>
                 </div>
 
                 <div style={{
-                    border: "1px solid #e0e0e0",
-                    borderRadius: "10px",
-                    padding: "20px",
-                    backgroundColor: "#fff"
+                    display: "grid",
+                    gridTemplateColumns: "repeat(7, 1fr)",
+                    textAlign: "center",
+                    fontWeight: "bold",
+                    marginBottom: "8px"
                 }}>
-                    <div style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                        alignItems: "center",
-                        marginBottom: "16px"
-                    }}>
-                        <button onClick={handlePrevMonth} style={navBtnStyle}>‹ Tháng trước</button>
-                        <div style={{display: "flex", alignItems: "center", gap: "12px"}}>
-                            <h2 style={{margin: 0, fontSize: "20px", color: "#518f02"}}>
-                                Tháng {currentMonth + 1} / {currentYear}
-                            </h2>
-                            <button onClick={handleToday}
-                                    style={{...navBtnStyle, backgroundColor: "#78b43d", color: "#fff", border: "none"}}>
-                                Hôm nay
-                            </button>
+                    {DAYS_OF_WEEK.map((day, idx) => (
+                        <div key={day} style={{
+                            padding: "10px 0",
+                            backgroundColor: "#f5f5f5",
+                            color: idx === 6 ? "#d93025" : "#333",
+                            borderBottom: "2px solid #78b43d"
+                        }}>
+                            {day}
                         </div>
-                        <button onClick={handleNextMonth} style={navBtnStyle}>Tháng sau ›</button>
-                    </div>
+                    ))}
+                </div>
 
-                    <div style={{
-                        display: "grid",
-                        gridTemplateColumns: "repeat(7, 1fr)",
-                        textAlign: "center",
-                        fontWeight: "bold",
-                        marginBottom: "8px"
-                    }}>
-                        {DAYS_OF_WEEK.map((day, idx) => (
-                            <div key={day} style={{
-                                padding: "10px 0",
-                                backgroundColor: "#f5f5f5",
-                                color: idx === 6 ? "#d93025" : "#333",
-                                borderBottom: "2px solid #78b43d"
-                            }}>
-                                {day}
+                <div style={{display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "4px"}}>
+                    {calendarCells.map((day, index) => {
+                        if (!day) return <div key={`empty-${index}`} style={{height: "64px"}}/>;
+
+                        const cellDate = new Date(currentYear, currentMonth, day);
+                        const isToday = isSameDay(cellDate, today);
+                        const isSelected = isSameDay(cellDate, selectedDate);
+                        const isSunday = cellDate.getDay() === 0;
+
+                        return (
+                            <div
+                                key={day}
+                                onClick={() => setSelectedDate(cellDate)}
+                                style={{
+                                    height: "64px",
+                                    border: isSelected ? "2px solid #78b43d" : "1px solid #eee",
+                                    backgroundColor: isToday ? "#e8f5e9" : isSelected ? "#f9fbe7" : "#fff",
+                                    borderRadius: "6px",
+                                    padding: "6px",
+                                    cursor: "pointer",
+                                    display: "flex",
+                                    flexDirection: "column",
+                                    justifyContent: "space-between",
+                                    transition: "0.2s"
+                                }}
+                            >
+                                <span style={{
+                                    fontSize: "16px",
+                                    fontWeight: "bold",
+                                    color: isSunday ? "#d93025" : "#222"
+                                }}>
+                                    {day}
+                                </span>
+                                <span style={{fontSize: "11px", color: "#777", textAlign: "right"}}>
+                                    {getLunarDateText(cellDate)}
+                                </span>
                             </div>
-                        ))}
-                    </div>
-
-                    <div style={{display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "4px"}}>
-                        {calendarCells.map((day, index) => {
-                            if (!day) return <div key={`empty-${index}`} style={{height: "64px"}}/>;
-
-                            const cellDate = new Date(currentYear, currentMonth, day);
-                            const isToday = isSameDay(cellDate, today);
-                            const isSelected = isSameDay(cellDate, selectedDate);
-                            const isSunday = cellDate.getDay() === 0;
-
-                            return (
-                                <div
-                                    key={day}
-                                    onClick={() => setSelectedDate(cellDate)}
-                                    style={{
-                                        height: "64px",
-                                        border: isSelected ? "2px solid #78b43d" : "1px solid #eee",
-                                        backgroundColor: isToday ? "#e8f5e9" : isSelected ? "#f9fbe7" : "#fff",
-                                        borderRadius: "6px",
-                                        padding: "6px",
-                                        cursor: "pointer",
-                                        display: "flex",
-                                        flexDirection: "column",
-                                        justifyContent: "space-between",
-                                        transition: "0.2s"
-                                    }}
-                                >
-                                    <span style={{
-                                        fontSize: "16px",
-                                        fontWeight: "bold",
-                                        color: isSunday ? "#d93025" : "#222"
-                                    }}>
-                                        {day}
-                                    </span>
-                                    <span style={{fontSize: "11px", color: "#777", textAlign: "right"}}>
-                                        {getLunarDateText(cellDate)}
-                                    </span>
-                                </div>
-                            );
-                        })}
-                    </div>
+                        );
+                    })}
                 </div>
             </div>
 
