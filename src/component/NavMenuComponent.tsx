@@ -86,6 +86,7 @@ const routeMap: Record<string, string> = {
     "Ca nhạc - MTV": "/ca-nhac-mtv",
     "Tra cứu phường xã": "/tra-cuu-phuong-xa",
     "Dự báo thời tiết": "/du-bao-thoi-tiet",
+    "Du lịch": "/du-lich"
 };
 
 const NavMenuComponent = () => {
