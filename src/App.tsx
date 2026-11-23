@@ -19,6 +19,7 @@ import CaNhacMTVPage from "./pages/CaNhacMTVPage.tsx";
 import CalendarPage from "./pages/CalendarPage";
 import DistrictSearchPage from "./pages/DistrictSearchPage.tsx";
 import WeatherPage from "./pages/WeatherPage.tsx";
+import DuLichPage from "./pages/DuLichPage.tsx";
 
 function App() {
     return (
@@ -43,6 +44,7 @@ function App() {
                 <Route path="/lich" element={<CalendarPage />} />
                 <Route path="/tra-cuu-phuong-xa" element={<DistrictSearchPage />} />
                 <Route path="/du-bao-thoi-tiet" element={<WeatherPage />} />
+                <Route path="/du-lich" element={<DuLichPage />} />
             </Routes>
 
             <BackToTop />

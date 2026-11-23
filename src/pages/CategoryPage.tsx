@@ -7,7 +7,7 @@ import NewsUpdate from "../component/home/NewsUpdate.tsx";
 import {useArticles} from "../hooks/useArticles";
 import "../styles/PageHeading.css";
 import "../styles/TodayPage.css";
-import {useState} from "react";
+import {useState, type ReactNode} from "react";
 
 interface NavItem {
     icon: string;
@@ -20,9 +20,10 @@ interface CategoryPageProps {
     navItems?: NavItem[];
     sideTitle: string;
     updateTitle: string;
+    component?: ReactNode;
 }
 
-function CategoryPage({title, source, navItems = [], sideTitle, updateTitle}: CategoryPageProps) {
+function CategoryPage({title, source, navItems = [], sideTitle, updateTitle, component}: CategoryPageProps) {
     const {items: articles, loading, error} = useArticles(source);
     const [showAll, setShowAll] = useState(false);
     return (
@@ -68,6 +69,11 @@ function CategoryPage({title, source, navItems = [], sideTitle, updateTitle}: Ca
                                     <p>{item.label}</p>
                                 </div>
                             ))}
+                        </div>
+                    )}
+                    {component && (
+                        <div className="nav-banner">
+                            {component}
                         </div>
                     )}
                     <div className="cover-news">
