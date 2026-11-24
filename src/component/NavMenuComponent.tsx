@@ -68,6 +68,7 @@ const listMenuItem: MenuItem[] = [
     { id: 33, name: "THỜI TIẾT", idParent: null },
     { id: 34, name: "Dự báo thời tiết", idParent: 33 },
 
+
 ];
 
 const routeMap: Record<string, string> = {
@@ -86,7 +87,8 @@ const routeMap: Record<string, string> = {
     "Ca nhạc - MTV": "/ca-nhac-mtv",
     "Tra cứu phường xã": "/tra-cuu-phuong-xa",
     "Dự báo thời tiết": "/du-bao-thoi-tiet",
-    "Du lịch": "/du-lich"
+    "Du lịch": "/du-lich",
+    "Ô tô": "/oto",
 };
 
 const NavMenuComponent = () => {

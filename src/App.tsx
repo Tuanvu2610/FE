@@ -20,6 +20,7 @@ import CalendarPage from "./pages/CalendarPage";
 import DistrictSearchPage from "./pages/DistrictSearchPage.tsx";
 import WeatherPage from "./pages/WeatherPage.tsx";
 import DuLichPage from "./pages/DuLichPage.tsx";
+import OtoPage from "./pages/OtoPage";
 
 function App() {
     return (
@@ -45,6 +46,7 @@ function App() {
                 <Route path="/tra-cuu-phuong-xa" element={<DistrictSearchPage />} />
                 <Route path="/du-bao-thoi-tiet" element={<WeatherPage />} />
                 <Route path="/du-lich" element={<DuLichPage />} />
+                <Route path="/oto" element={<OtoPage />} />
             </Routes>
 
             <BackToTop />
