@@ -2,22 +2,13 @@ import {useState} from "react";
 import {Link} from "react-router-dom";
 import LichNews from "../component/LichNews";
 import DayPanel from "../component/DayPanel";
-import {getLunarDate} from "../utils/lunar";
-
-const DAYS_OF_WEEK = ["Thứ 2", "Thứ 3", "Thứ 4", "Thứ 5", "Thứ 6", "Thứ 7", "Chủ nhật"];
+import MonthGrid from "../component/MonthGrid";
 
 const CalendarPage = () => {
     const today = new Date();
     const [currentMonth, setCurrentMonth] = useState(today.getMonth());
     const [currentYear, setCurrentYear] = useState(today.getFullYear());
     const [selectedDate, setSelectedDate] = useState<Date>(today);
-
-    const getDaysInMonth = (year: number, month: number) => new Date(year, month + 1, 0).getDate();
-
-    const getFirstDayOfMonth = (year: number, month: number) => {
-        const day = new Date(year, month, 1).getDay();
-        return day === 0 ? 6 : day - 1;
-    };
 
     const handlePrevMonth = () => {
         if (currentMonth === 0) {
@@ -44,34 +35,19 @@ const CalendarPage = () => {
         setSelectedDate(now);
     };
 
+    // Chọn một ngày (kể cả ngày của tháng trước/sau) thì lịch nhảy sang tháng đó
+    const handleSelect = (date: Date) => {
+        setSelectedDate(date);
+        setCurrentMonth(date.getMonth());
+        setCurrentYear(date.getFullYear());
+    };
+
     const moveDay = (delta: number) => {
-        const next = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + delta);
-        setSelectedDate(next);
-        setCurrentMonth(next.getMonth());
-        setCurrentYear(next.getFullYear());
+        handleSelect(new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate() + delta));
     };
-
-    const getLunarDateText = (date: Date) => {
-        const lunar = getLunarDate(date.getDate(), date.getMonth() + 1, date.getFullYear());
-        return `${lunar.day}/${lunar.month}`;
-    };
-
-    const daysInMonth = getDaysInMonth(currentYear, currentMonth);
-    const firstDayIndex = getFirstDayOfMonth(currentYear, currentMonth);
-
-    const calendarCells: (number | null)[] = [
-        ...Array(firstDayIndex).fill(null),
-        ...Array.from({length: daysInMonth}, (_, i) => i + 1),
-    ];
-
-    const isSameDay = (d1: Date, d2: Date) =>
-        d1.getDate() === d2.getDate() &&
-        d1.getMonth() === d2.getMonth() &&
-        d1.getFullYear() === d2.getFullYear();
 
     return (
         <div style={{maxWidth: "1050px", margin: "24px auto", padding: "0 16px", fontFamily: "Arial, sans-serif"}}>
-            {/* Breadcrumb */}
             <div style={{marginBottom: "16px", fontSize: "14px", color: "#666"}}>
                 <Link to="/" style={{color: "#78b43d", textDecoration: "none"}}>Trang chủ</Link>
                 <span> › </span>
@@ -84,106 +60,24 @@ const CalendarPage = () => {
                 onNext={() => moveDay(1)}
             />
 
-            <div style={{
-                marginTop: "16px",
-                border: "1px solid #e0e0e0",
-                borderRadius: "10px",
-                padding: "20px",
-                backgroundColor: "#fff"
-            }}>
-                <div style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "center",
-                    marginBottom: "16px"
-                }}>
-                    <button onClick={handlePrevMonth} style={navBtnStyle}>‹ Tháng trước</button>
-                    <div style={{display: "flex", alignItems: "center", gap: "12px"}}>
-                        <h2 style={{margin: 0, fontSize: "20px", color: "#518f02"}}>
-                            Tháng {currentMonth + 1} / {currentYear}
-                        </h2>
-                        <button onClick={handleToday}
-                                style={{...navBtnStyle, backgroundColor: "#78b43d", color: "#fff", border: "none"}}>
-                            Hôm nay
-                        </button>
-                    </div>
-                    <button onClick={handleNextMonth} style={navBtnStyle}>Tháng sau ›</button>
-                </div>
-
-                <div style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(7, 1fr)",
-                    textAlign: "center",
-                    fontWeight: "bold",
-                    marginBottom: "8px"
-                }}>
-                    {DAYS_OF_WEEK.map((day, idx) => (
-                        <div key={day} style={{
-                            padding: "10px 0",
-                            backgroundColor: "#f5f5f5",
-                            color: idx === 6 ? "#d93025" : "#333",
-                            borderBottom: "2px solid #78b43d"
-                        }}>
-                            {day}
-                        </div>
-                    ))}
-                </div>
-
-                <div style={{display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "4px"}}>
-                    {calendarCells.map((day, index) => {
-                        if (!day) return <div key={`empty-${index}`} style={{height: "64px"}}/>;
-
-                        const cellDate = new Date(currentYear, currentMonth, day);
-                        const isToday = isSameDay(cellDate, today);
-                        const isSelected = isSameDay(cellDate, selectedDate);
-                        const isSunday = cellDate.getDay() === 0;
-
-                        return (
-                            <div
-                                key={day}
-                                onClick={() => setSelectedDate(cellDate)}
-                                style={{
-                                    height: "64px",
-                                    border: isSelected ? "2px solid #78b43d" : "1px solid #eee",
-                                    backgroundColor: isToday ? "#e8f5e9" : isSelected ? "#f9fbe7" : "#fff",
-                                    borderRadius: "6px",
-                                    padding: "6px",
-                                    cursor: "pointer",
-                                    display: "flex",
-                                    flexDirection: "column",
-                                    justifyContent: "space-between",
-                                    transition: "0.2s"
-                                }}
-                            >
-                                <span style={{
-                                    fontSize: "16px",
-                                    fontWeight: "bold",
-                                    color: isSunday ? "#d93025" : "#222"
-                                }}>
-                                    {day}
-                                </span>
-                                <span style={{fontSize: "11px", color: "#777", textAlign: "right"}}>
-                                    {getLunarDateText(cellDate)}
-                                </span>
-                            </div>
-                        );
-                    })}
-                </div>
-            </div>
+            <MonthGrid
+                year={currentYear}
+                month={currentMonth}
+                selected={selectedDate}
+                today={today}
+                onSelect={handleSelect}
+                onPrevMonth={handlePrevMonth}
+                onNextMonth={handleNextMonth}
+                onGoTo={(m, y) => {
+                    setCurrentMonth(m);
+                    setCurrentYear(y);
+                }}
+                onToday={handleToday}
+            />
 
             <LichNews/>
         </div>
     );
-};
-
-const navBtnStyle: React.CSSProperties = {
-    padding: "6px 12px",
-    borderRadius: "6px",
-    border: "1px solid #ccc",
-    backgroundColor: "#fff",
-    cursor: "pointer",
-    fontWeight: 600,
-    fontSize: "13px"
 };
 
 export default CalendarPage;
