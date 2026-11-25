@@ -87,6 +87,7 @@ const routeMap: Record<string, string> = {
     "Phim": "/phim",
     "Ca nhạc - MTV": "/ca-nhac-mtv",
     "Tra cứu phường xã": "/tra-cuu-phuong-xa",
+    "Phi thường - kỳ quặc": "/phi-thuong-ky-quac",
     "Dự báo thời tiết": "/du-bao-thoi-tiet",
     "Du lịch": "/du-lich",
     "Ô tô": "/oto",
