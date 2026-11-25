@@ -1,0 +1,215 @@
+.monthgrid {
+    margin-top: 16px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    background: #fff;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.monthgrid__bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+    background: #78b43d;
+    color: #fff;
+    padding: 8px 12px;
+}
+
+.monthgrid__nav {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.monthgrid__arrow {
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 16px;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.monthgrid__arrow:hover {
+    background: #fff;
+    color: #78b43d;
+}
+
+.monthgrid__picker {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.monthgrid__picker select {
+    height: 28px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 0 6px;
+}
+
+.monthgrid__go {
+    height: 28px;
+    padding: 0 12px;
+    border: none;
+    border-radius: 3px;
+    background: #2e7d32;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.monthgrid__go--light {
+    background: #fff;
+    color: #2e7d32;
+}
+
+.monthgrid__weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+    background: #f5f5f5;
+    font-size: 13px;
+    font-weight: bold;
+    color: #555;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.monthgrid__weekdays div {
+    padding: 8px 0;
+}
+
+.monthgrid__weekdays .monthgrid__sun {
+    color: #d93025;
+}
+
+.monthgrid__cells {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.monthgrid__cell {
+    min-height: 84px;
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    background: #fff;
+    border-right: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.monthgrid__cell:nth-child(7n) {
+    border-right: none;
+}
+
+.monthgrid__cell:hover {
+    background: #f9fbe7;
+}
+
+.monthgrid__cell--out {
+    opacity: 0.45;
+}
+
+.monthgrid__cell--today {
+    background: #fde9c8;
+}
+
+.monthgrid__cell--selected {
+    outline: 2px solid #78b43d;
+    outline-offset: -2px;
+}
+
+.monthgrid__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.monthgrid__solar {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+}
+
+.monthgrid__solar--red {
+    color: #d93025;
+}
+
+.monthgrid__dot {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    margin: 0 3px;
+    border-radius: 50%;
+    vertical-align: super;
+}
+
+.monthgrid__dot--good {
+    background: #2e9b2e;
+}
+
+.monthgrid__dot--bad {
+    background: #555;
+}
+
+.monthgrid__lunar {
+    font-size: 11px;
+    color: #666;
+}
+
+.monthgrid__lunar--first {
+    color: #d93025;
+    font-weight: bold;
+}
+
+.monthgrid__holiday {
+    font-size: 10px;
+    line-height: 1.2;
+    color: #d93025;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.monthgrid__canchi {
+    margin-top: auto;
+    font-size: 10px;
+    color: #777;
+    text-align: center;
+}
+
+.monthgrid__legend {
+    display: flex;
+    gap: 16px;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: #555;
+    border-top: 1px solid #eee;
+}
+
+@media (max-width: 600px) {
+    .monthgrid__cell {
+        min-height: 60px;
+        padding: 4px;
+    }
+
+    .monthgrid__solar {
+        font-size: 14px;
+    }
+
+    .monthgrid__holiday,
+    .monthgrid__canchi {
+        display: none;
+    }
+}
