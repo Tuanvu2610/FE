@@ -22,6 +22,8 @@ import WeatherPage from "./pages/WeatherPage.tsx";
 import DuLichPage from "./pages/DuLichPage.tsx";
 import OtoPage from "./pages/OtoPage";
 import ThiTruongTieuDungPage from "./pages/ThiTruongTieuDungPage";
+import PhiThuongKyQuacPage from "./pages/PhiThuongKyQuacPage";
+
 
 
 function App() {
@@ -50,6 +52,9 @@ function App() {
                 <Route path="/du-lich" element={<DuLichPage />} />
                 <Route path="/oto" element={<OtoPage />} />
                 <Route path="/thi-truong-tieu-dung" element={<ThiTruongTieuDungPage />} />
+                <Route path="/phi-thuong-ky-quac" element={<PhiThuongKyQuacPage />}
+                />
+
             </Routes>
 
             <BackToTop />
