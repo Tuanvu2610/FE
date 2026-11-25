@@ -78,6 +78,7 @@ const routeMap: Record<string, string> = {
     "Thời trang": "/thoi-trang",
     "Thời trang Hi-tech": "/thoi-trang-hi-tech",
     "Tài chính – Bất động sản": "/tai-chinh-bat-dong-san",
+    "Thị trường - Tiêu dùng": "/thi-truong-tieu-dung",
     "Tin tức trong ngày": "/trong-ngay",
     "Ẩm thực": "/am-thuc",
     "Giáo dục - du học": "/giao-duc-du-hoc",
