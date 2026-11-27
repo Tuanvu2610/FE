@@ -1,0 +1,48 @@
+.infolinks {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.infolinks__title {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin: 0 0 10px;
+}
+
+.infolinks__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.infolinks__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 0;
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 13px;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.infolinks__btn--gold {
+    background: #b8860b;
+}
+
+.infolinks__btn--rate {
+    background: #1e7e5a;
+}
+
+.infolinks__btn--weather {
+    background: #4a9bd1;
+}
+
+.infolinks__btn:hover {
+    opacity: 0.9;
+}
