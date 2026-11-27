@@ -1,8 +1,11 @@
 import {useState} from "react";
 import {Link} from "react-router-dom";
 import LichNews from "../component/LichNews";
+import LichSidebar from "../component/LichSidebar";
 import DayPanel from "../component/DayPanel";
 import MonthGrid from "../component/MonthGrid";
+import InfoLinks from "../component/InfoLinks";
+import "../styles/CalendarPage.css";
 
 const CalendarPage = () => {
     const today = new Date();
@@ -47,35 +50,42 @@ const CalendarPage = () => {
     };
 
     return (
-        <div style={{maxWidth: "1050px", margin: "24px auto", padding: "0 16px", fontFamily: "Arial, sans-serif"}}>
-            <div style={{marginBottom: "16px", fontSize: "14px", color: "#666"}}>
-                <Link to="/" style={{color: "#78b43d", textDecoration: "none"}}>Trang chủ</Link>
+        <div className="calpage">
+            <div className="calpage__breadcrumb">
+                <Link to="/">Trang chủ</Link>
                 <span> › </span>
                 <strong>Lịch Vạn Niên</strong>
             </div>
 
-            <DayPanel
-                date={selectedDate}
-                onPrev={() => moveDay(-1)}
-                onNext={() => moveDay(1)}
-            />
+            <div className="calpage__layout">
+                <div>
+                    <DayPanel
+                        date={selectedDate}
+                        onPrev={() => moveDay(-1)}
+                        onNext={() => moveDay(1)}
+                    />
 
-            <MonthGrid
-                year={currentYear}
-                month={currentMonth}
-                selected={selectedDate}
-                today={today}
-                onSelect={handleSelect}
-                onPrevMonth={handlePrevMonth}
-                onNextMonth={handleNextMonth}
-                onGoTo={(m, y) => {
-                    setCurrentMonth(m);
-                    setCurrentYear(y);
-                }}
-                onToday={handleToday}
-            />
+                    <MonthGrid
+                        year={currentYear}
+                        month={currentMonth}
+                        selected={selectedDate}
+                        today={today}
+                        onSelect={handleSelect}
+                        onPrevMonth={handlePrevMonth}
+                        onNextMonth={handleNextMonth}
+                        onGoTo={(m, y) => {
+                            setCurrentMonth(m);
+                            setCurrentYear(y);
+                        }}
+                        onToday={handleToday}
+                    />
 
-            <LichNews/>
+                    <InfoLinks/>
+                    <LichNews/>
+                </div>
+
+                <LichSidebar/>
+            </div>
         </div>
     );
 };

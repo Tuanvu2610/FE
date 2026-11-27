@@ -1,0 +1,15 @@
+.lich-sidebar {
+    position: sticky;
+    top: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.lich-sidebar__title {
+    border-left: 4px solid #6fb130;
+    padding-left: 8px;
+    font-size: 15px;
+    margin: 0 0 10px;
+    color: #518f02;
+}

@@ -1,7 +1,5 @@
-import FeaturedArticle from "./home/FeaturedArticle.tsx";
+import FeaturedArticle from "./home/FeaturedArticle";
 import SmallArticleRow from "./home/SmallArticleRow";
-import DailyNews from "./DailyNews";
-import AdBanner from "./AdBanner";
 import {useArticles} from "../hooks/useArticles";
 import "../styles/LichNews.css";
 
@@ -16,16 +14,10 @@ function LichNews() {
             {error && <p>{error}</p>}
 
             {!loading && !error && items.length > 0 && (
-                <div className="lich-news__layout">
-                    <div className="lich-news__main">
-                        <FeaturedArticle article={items[0]}/>
-                        <SmallArticleRow articles={items.slice(1, 7)}/>
-                    </div>
-                    <aside className="lich-news__side">
-                        <DailyNews/>
-                        <AdBanner/>
-                    </aside>
-                </div>
+                <>
+                    <FeaturedArticle article={items[0]}/>
+                    <SmallArticleRow articles={items.slice(1, 7)}/>
+                </>
             )}
         </section>
     );
