@@ -91,7 +91,8 @@ const routeMap: Record<string, string> = {
     "Dự báo thời tiết": "/du-bao-thoi-tiet",
     "Du lịch": "/du-lich",
     "Ô tô": "/oto",
-    "Sức khỏe đời sống": "/suc-khoe-doi-song"
+    "Sức khỏe đời sống": "/suc-khoe-doi-song",
+    "Công nghệ thông tin": "/cong-nghe-thong-tin",
 };
 
 const NavMenuComponent = () => {
