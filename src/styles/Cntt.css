@@ -1,0 +1,242 @@
+.cntt-page {
+    max-width: 1050px;
+    margin: 0 auto;
+    padding: 0 16px 24px;
+    font-family: Arial, sans-serif;
+}
+
+/* Thanh trên */
+.cntt-subnav {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 10px 0;
+    margin-bottom: 12px;
+    border-bottom: 1px solid #e5e5e5;
+    font-size: 13px;
+    color: #555;
+}
+
+.cntt-subnav a {
+    color: #555;
+}
+
+.cntt-subnav strong {
+    color: #222;
+}
+
+.cntt-subnav span {
+    cursor: pointer;
+}
+
+.cntt-subnav span:hover {
+    color: #518f02;
+}
+
+/* Bố cục */
+.cntt-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 2.6fr) minmax(0, 1fr);
+    gap: 16px;
+    align-items: start;
+}
+
+.cntt-main {
+    min-width: 0;
+}
+
+.cntt-lower {
+    display: grid;
+    grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+}
+
+/* Bài lớn */
+.cntt-hero {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    border-radius: 2px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.cntt-hero__img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+}
+
+.cntt-hero__title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 0;
+    padding: 48px 14px 14px;
+    font-size: 22px;
+    line-height: 1.25;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+}
+
+/* Danh sách bài */
+.cntt-row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 16px;
+    color: inherit;
+    text-decoration: none;
+}
+
+.cntt-row__img {
+    width: 180px;
+    height: 120px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.cntt-row__title {
+    margin: 0 0 4px;
+    font-size: 15px;
+    line-height: 1.3;
+    color: #111;
+}
+
+.cntt-row__desc {
+    display: -webkit-box;
+    margin: 0;
+    overflow: hidden;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #777;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.cntt-row:hover .cntt-row__title {
+    color: #518f02;
+}
+
+/* Khối GAME, MẠNG XÃ HỘI... */
+.cntt-block {
+    margin-bottom: 22px;
+}
+
+.cntt-block__title {
+    display: inline-block;
+    margin: 0 0 8px;
+    padding-bottom: 3px;
+    font-size: 13px;
+    color: #222;
+    border-bottom: 3px solid #2ecc71;
+}
+
+.cntt-block__lead {
+    display: block;
+    margin-bottom: 8px;
+    color: #111;
+    text-decoration: none;
+}
+
+.cntt-block__img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 3 / 2;
+    margin-bottom: 6px;
+    object-fit: cover;
+}
+
+.cntt-block__lead span {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.35;
+}
+
+.cntt-block__item {
+    display: block;
+    padding: 6px 0;
+    border-top: 1px solid #eee;
+    font-size: 12px;
+    line-height: 1.4;
+    color: #444;
+    text-decoration: none;
+}
+
+.cntt-block__item:hover {
+    color: #518f02;
+}
+
+/* Cột phải */
+.cntt-side {
+    min-width: 0;
+}
+
+.cntt-mini {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    padding: 6px 0;
+    color: #111;
+    text-decoration: none;
+}
+
+.cntt-mini__img {
+    width: 92px;
+    height: 60px;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.cntt-mini__title {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.35;
+}
+
+.cntt-mini:hover .cntt-mini__title {
+    color: #518f02;
+}
+
+.cntt-feedback {
+    display: block;
+    width: 100%;
+    margin: 12px 0;
+    padding: 6px 0;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    background: #fff;
+    font-size: 12px;
+    color: #518f02;
+    cursor: pointer;
+}
+
+.cntt-side__title {
+    margin: 18px 0 8px;
+    font-size: 14px;
+    color: #518f02;
+}
+
+.cntt-side__title--plain {
+    color: #333;
+}
+
+@media (max-width: 900px) {
+    .cntt-layout,
+    .cntt-lower {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+    .cntt-row__img {
+        width: 110px;
+        height: 74px;
+    }
+
+    .cntt-hero__title {
+        font-size: 17px;
+    }
+}
