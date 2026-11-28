@@ -24,6 +24,7 @@ import OtoPage from "./pages/OtoPage";
 import ThiTruongTieuDungPage from "./pages/ThiTruongTieuDungPage";
 import PhiThuongKyQuacPage from "./pages/PhiThuongKyQuacPage";
 import HealtyPage from "./pages/HealtyPage.tsx";
+import SearchPage from "./pages/SearchPage.tsx";
 
 
 
@@ -55,7 +56,7 @@ function App() {
                 <Route path="/thi-truong-tieu-dung" element={<ThiTruongTieuDungPage />} />
                 <Route path="/phi-thuong-ky-quac" element={<PhiThuongKyQuacPage />}/>
                 <Route path="/suc-khoe-doi-song" element={<HealtyPage />}/>
-
+                <Route path="/tim-kiem" element={<SearchPage />} />
             </Routes>
 
             <BackToTop />
