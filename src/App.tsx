@@ -25,7 +25,7 @@ import ThiTruongTieuDungPage from "./pages/ThiTruongTieuDungPage";
 import PhiThuongKyQuacPage from "./pages/PhiThuongKyQuacPage";
 import HealtyPage from "./pages/HealtyPage.tsx";
 import SearchPage from "./pages/SearchPage.tsx";
-
+import CongNgheThongTinPage from "./pages/CongNgheThongTinPage";
 
 
 function App() {
@@ -57,6 +57,7 @@ function App() {
                 <Route path="/phi-thuong-ky-quac" element={<PhiThuongKyQuacPage />}/>
                 <Route path="/suc-khoe-doi-song" element={<HealtyPage />}/>
                 <Route path="/tim-kiem" element={<SearchPage />} />
+                <Route path="/cong-nghe-thong-tin" element={<CongNgheThongTinPage />} />
             </Routes>
 
             <BackToTop />
